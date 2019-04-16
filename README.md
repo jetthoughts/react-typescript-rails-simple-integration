@@ -1,24 +1,6 @@
-# README
+# Rails + Typescript + React.js
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Example of project to show how to integrate React and Typescript into Rails application.
 
-Things you may want to cover:
+It shows how you can use both Rails views and React components.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
