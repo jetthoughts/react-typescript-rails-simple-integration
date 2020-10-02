@@ -1,0 +1,553 @@
+e i
+Your Ruby version is 2.3.7, but your Gemfile specified 2.5.1
+(base) Thu Oct 01 19:32:18:[mainline]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ bundle i
+Your Ruby version is 2.3.7, but your Gemfile specified 2.5.1
+(base) Thu Oct 01 19:32:47:[mainline x]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ bundle install
+Your Ruby version is 2.3.7, but your Gemfile specified 2.5.1
+(base) Thu Oct 01 19:32:51:[mainline x]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ bundle install
+The dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.
+Fetching gem metadata from https://rubygems.org/............
+Fetching gem metadata from https://rubygems.org/.
+Resolving dependencies....
+Using rake 13.0.1
+Following files may not be writable, so sudo is needed:
+  /Library/Ruby/Gems/2.3.0
+  /Library/Ruby/Gems/2.3.0/build_info
+  /Library/Ruby/Gems/2.3.0/cache
+  /Library/Ruby/Gems/2.3.0/doc
+  /Library/Ruby/Gems/2.3.0/extensions
+  /Library/Ruby/Gems/2.3.0/gems
+  /Library/Ruby/Gems/2.3.0/specifications
+Fetching concurrent-ruby 1.1.7
+
+
+Your user account isn't allowed to install to the system RubyGems.
+  You can cancel this installation and run:
+
+      bundle install --path vendor/bundle
+
+  to install the gems into ./vendor/bundle/, or you can enter your password
+  and install the bundled gems to RubyGems using sudo.
+
+  Password:
+
+
+Your user account isn't allowed to install to the system RubyGems.
+  You can cancel this installation and run:
+
+      bundle install --path vendor/bundle
+
+  to install the gems into ./vendor/bundle/, or you can enter your password
+  and install the bundled gems to RubyGems using sudo.
+
+  Password:
+Installing concurrent-ruby 1.1.7
+Fetching i18n 1.8.5
+Installing i18n 1.8.5
+Fetching minitest 5.14.2
+Installing minitest 5.14.2
+Fetching thread_safe 0.3.6
+Installing thread_safe 0.3.6
+Fetching tzinfo 1.2.7
+Installing tzinfo 1.2.7
+Fetching activesupport 5.2.4.4
+Installing activesupport 5.2.4.4
+Fetching builder 3.2.4
+Installing builder 3.2.4
+Fetching erubi 1.9.0
+Installing erubi 1.9.0
+Fetching mini_portile2 2.4.0
+Installing mini_portile2 2.4.0
+Fetching nokogiri 1.10.10
+Installing nokogiri 1.10.10 with native extensions
+Fetching rails-dom-testing 2.0.3
+Installing rails-dom-testing 2.0.3
+Fetching crass 1.0.6
+Installing crass 1.0.6
+Fetching loofah 2.7.0
+Installing loofah 2.7.0
+Fetching rails-html-sanitizer 1.3.0
+Installing rails-html-sanitizer 1.3.0
+Fetching actionview 5.2.4.4
+Installing actionview 5.2.4.4
+Fetching rack 2.2.3
+Installing rack 2.2.3
+Fetching rack-test 1.1.0
+Installing rack-test 1.1.0
+Fetching actionpack 5.2.4.4
+Installing actionpack 5.2.4.4
+Fetching nio4r 2.5.2
+Installing nio4r 2.5.2 with native extensions
+Fetching websocket-extensions 0.1.5
+Installing websocket-extensions 0.1.5
+Fetching websocket-driver 0.7.3
+Installing websocket-driver 0.7.3 with native extensions
+Fetching actioncable 5.2.4.4
+Installing actioncable 5.2.4.4
+Fetching globalid 0.4.2
+Installing globalid 0.4.2
+Fetching activejob 5.2.4.4
+Installing activejob 5.2.4.4
+Fetching mini_mime 1.0.2
+Installing mini_mime 1.0.2
+Fetching mail 2.7.1
+Installing mail 2.7.1
+Fetching actionmailer 5.2.4.4
+Installing actionmailer 5.2.4.4
+Fetching activemodel 5.2.4.4
+Installing activemodel 5.2.4.4
+Fetching arel 9.0.0
+Installing arel 9.0.0
+Fetching activerecord 5.2.4.4
+Installing activerecord 5.2.4.4
+Fetching mimemagic 0.3.5
+Installing mimemagic 0.3.5
+Fetching marcel 0.3.3
+Installing marcel 0.3.3
+Fetching activestorage 5.2.4.4
+Installing activestorage 5.2.4.4
+Fetching public_suffix 4.0.6
+Installing public_suffix 4.0.6
+Fetching addressable 2.7.0
+Installing addressable 2.7.0
+Fetching io-like 0.3.1
+Installing io-like 0.3.1
+Fetching archive-zip 0.12.0
+Installing archive-zip 0.12.0
+Fetching bindex 0.8.1
+Installing bindex 0.8.1 with native extensions
+Fetching msgpack 1.3.3
+Installing msgpack 1.3.3 with native extensions
+Fetching bootsnap 1.4.8
+Installing bootsnap 1.4.8 with native extensions
+Using bundler 2.1.4
+Fetching byebug 11.0.1
+Installing byebug 11.0.1 with native extensions
+Fetching regexp_parser 1.8.1
+Installing regexp_parser 1.8.1
+Fetching xpath 3.2.0
+Installing xpath 3.2.0
+Fetching capybara 3.15.1
+Installing capybara 3.15.1
+Fetching childprocess 3.0.0
+Installing childprocess 3.0.0
+Fetching chromedriver-helper 2.1.1
+Installing chromedriver-helper 2.1.1
+Fetching coffee-script-source 1.12.2
+Installing coffee-script-source 1.12.2
+Fetching execjs 2.7.0
+Installing execjs 2.7.0
+Fetching coffee-script 2.4.1
+Installing coffee-script 2.4.1
+Fetching method_source 1.0.0
+Installing method_source 1.0.0
+Fetching thor 1.0.1
+Installing thor 1.0.1
+Fetching railties 5.2.4.4
+Installing railties 5.2.4.4
+Fetching coffee-rails 4.2.2
+Installing coffee-rails 4.2.2
+Fetching ffi 1.13.1
+Installing ffi 1.13.1 with native extensions
+Fetching jbuilder 2.10.1
+Installing jbuilder 2.10.1
+Fetching rb-fsevent 0.10.4
+Installing rb-fsevent 0.10.4
+Fetching rb-inotify 0.10.1
+Installing rb-inotify 0.10.1
+Fetching ruby_dep 1.5.0
+Installing ruby_dep 1.5.0
+Fetching listen 3.1.5
+Installing listen 3.1.5
+Fetching puma 3.12.6
+Installing puma 3.12.6 with native extensions
+Fetching rack-proxy 0.6.5
+Installing rack-proxy 0.6.5
+Fetching sprockets 3.7.2
+Installing sprockets 3.7.2
+Fetching sprockets-rails 3.2.2
+Installing sprockets-rails 3.2.2
+Fetching rails 5.2.4.4
+Installing rails 5.2.4.4
+Fetching rubyzip 1.3.0
+Installing rubyzip 1.3.0
+Fetching sass-listen 4.0.0
+Installing sass-listen 4.0.0
+Fetching sass 3.7.4
+Installing sass 3.7.4
+Fetching tilt 2.0.10
+Installing tilt 2.0.10
+Fetching sass-rails 5.0.7
+Installing sass-rails 5.0.7
+Fetching selenium-webdriver 3.142.7
+Installing selenium-webdriver 3.142.7
+Fetching spring 2.0.2
+Installing spring 2.0.2
+Fetching spring-watcher-listen 2.0.1
+Installing spring-watcher-listen 2.0.1
+Fetching sqlite3 1.4.2
+Installing sqlite3 1.4.2 with native extensions
+Fetching turbolinks-source 5.2.0
+Installing turbolinks-source 5.2.0
+Fetching turbolinks 5.2.1
+Installing turbolinks 5.2.1
+Fetching uglifier 4.2.0
+Installing uglifier 4.2.0
+Fetching web-console 3.7.0
+Installing web-console 3.7.0
+Fetching webpacker 4.3.0
+Installing webpacker 4.3.0
+Bundle complete! 19 Gemfile dependencies, 80 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+Post-install message from i18n:
+
+HEADS UP! i18n 1.1 changed fallbacks to exclude default locale.
+But that may break your application.
+
+If you are upgrading your Rails application from an older version of Rails:
+
+Please check your Rails app for 'config.i18n.fallbacks = true'.
+If you're using I18n (>= 1.1.0) and Rails (< 5.2.2), this should be
+'config.i18n.fallbacks = [I18n.default_locale]'.
+If not, fallbacks will be broken in your app by I18n 1.1.x.
+
+If you are starting a NEW Rails application, you can ignore this notice.
+
+For more info see:
+https://github.com/svenfuchs/i18n/releases/tag/v1.1.0
+
+Post-install message from chromedriver-helper:
+
+  +--------------------------------------------------------------------+
+  |                                                                    |
+  |  NOTICE: chromedriver-helper is deprecated after 2019-03-31.       |
+  |                                                                    |
+  |  Please update to use the 'webdrivers' gem instead.                |
+  |  See https://github.com/flavorjones/chromedriver-helper/issues/83  |
+  |                                                                    |
+  +--------------------------------------------------------------------+
+
+Post-install message from sass:
+
+Ruby Sass has reached end-of-life and should no longer be used.
+
+* If you use Sass as a command-line tool, we recommend using Dart Sass, the new
+  primary implementation: https://sass-lang.com/install
+
+* If you use Sass as a plug-in for a Ruby web framework, we recommend using the
+  sassc gem: https://github.com/sass/sassc-ruby#readme
+
+* For more details, please refer to the Sass blog:
+  https://sass-lang.com/blog/posts/7828841
+
+(base) Thu Oct 01 19:37:30:[mainline !x?]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+
+
+-------------
+
+
+(base) Thu Oct 01 20:37:51:[mainline !?+]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ nvm
+
+Node Version Manager (v0.35.2)
+
+Note: <version> refers to any version-like string nvm understands. This includes:
+  - full or partial version numbers, starting with an optional "v" (0.10, v0.1.2, v1)
+  - default (built-in) aliases: node, stable, unstable, iojs, system
+  - custom aliases you define with `nvm alias foo`
+
+ Any options that produce colorized output should respect the `--no-colors` option.
+
+Usage:
+  nvm --help                                Show this message
+  nvm --version                             Print out the installed version of nvm
+  nvm install [-s] <version>                Download and install a <version>, [-s] from source. Uses .nvmrc if available
+    --reinstall-packages-from=<version>     When installing, reinstall packages installed in <node|iojs|node version number>
+    --lts                                   When installing, only select from LTS (long-term support) versions
+    --lts=<LTS name>                        When installing, only select from versions for a specific LTS line
+    --skip-default-packages                 When installing, skip the default-packages file if it exists
+    --latest-npm                            After installing, attempt to upgrade to the latest working npm on the given node version
+    --no-progress                           Disable the progress bar on any downloads
+  nvm uninstall <version>                   Uninstall a version
+  nvm uninstall --lts                       Uninstall using automatic LTS (long-term support) alias `lts/*`, if available.
+  nvm uninstall --lts=<LTS name>            Uninstall using automatic alias for provided LTS line, if available.
+  nvm use [--silent] <version>              Modify PATH to use <version>. Uses .nvmrc if available
+    --lts                                   Uses automatic LTS (long-term support) alias `lts/*`, if available.
+    --lts=<LTS name>                        Uses automatic alias for provided LTS line, if available.
+  nvm exec [--silent] <version> [<command>] Run <command> on <version>. Uses .nvmrc if available
+    --lts                                   Uses automatic LTS (long-term support) alias `lts/*`, if available.
+    --lts=<LTS name>                        Uses automatic alias for provided LTS line, if available.
+  nvm run [--silent] <version> [<args>]     Run `node` on <version> with <args> as arguments. Uses .nvmrc if available
+    --lts                                   Uses automatic LTS (long-term support) alias `lts/*`, if available.
+    --lts=<LTS name>                        Uses automatic alias for provided LTS line, if available.
+  nvm current                               Display currently activated version of Node
+  nvm ls [<version>]                        List installed versions, matching a given <version> if provided
+    --no-colors                             Suppress colored output
+    --no-alias                              Suppress `nvm alias` output
+  nvm ls-remote [<version>]                 List remote versions available for install, matching a given <version> if provided
+    --lts                                   When listing, only show LTS (long-term support) versions
+    --lts=<LTS name>                        When listing, only show versions for a specific LTS line
+    --no-colors                             Suppress colored output
+  nvm version <version>                     Resolve the given description to a single local version
+  nvm version-remote <version>              Resolve the given description to a single remote version
+    --lts                                   When listing, only select from LTS (long-term support) versions
+    --lts=<LTS name>                        When listing, only select from versions for a specific LTS line
+  nvm deactivate                            Undo effects of `nvm` on current shell
+  nvm alias [<pattern>]                     Show all aliases beginning with <pattern>
+    --no-colors                             Suppress colored output
+  nvm alias <name> <version>                Set an alias named <name> pointing to <version>
+  nvm unalias <name>                        Deletes the alias named <name>
+  nvm install-latest-npm                    Attempt to upgrade to the latest working `npm` on the current node version
+  nvm reinstall-packages <version>          Reinstall global `npm` packages contained in <version> to current version
+  nvm unload                                Unload `nvm` from shell
+  nvm which [current | <version>]           Display path to installed node version. Uses .nvmrc if available
+  nvm cache dir                             Display path to the cache directory for nvm
+  nvm cache clear                           Empty cache directory for nvm
+
+Example:
+  nvm install 8.0.0                     Install a specific version number
+  nvm use 8.0                           Use the latest available 8.0.x release
+  nvm run 6.10.3 app.js                 Run app.js using node 6.10.3
+  nvm exec 4.8.3 node app.js            Run `node app.js` with the PATH pointing to node 4.8.3
+  nvm alias default 8.1.0               Set default node version on a shell
+  nvm alias default node                Always default to the latest available node version on a shell
+
+Note:
+  to remove, delete, or uninstall nvm - just remove the `$NVM_DIR` folder (usually `~/.nvm`)
+
+(base) Thu Oct 01 20:37:56:[mainline !?+]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ nvm list
+        v6.17.1
+       v10.18.1
+       v12.14.1
+->       system
+default -> node (-> v12.14.1)
+node -> stable (-> v12.14.1) (default)
+stable -> 12.14 (-> v12.14.1) (default)
+iojs -> N/A (default)
+unstable -> N/A (default)
+lts/* -> lts/erbium (-> N/A)
+lts/argon -> v4.9.1 (-> N/A)
+lts/boron -> v6.17.1
+lts/carbon -> v8.17.0 (-> N/A)
+lts/dubnium -> v10.20.0 (-> N/A)
+lts/erbium -> v12.16.2 (-> N/A)
+(base) Thu Oct 01 20:38:09:[mainline !?+]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ nvm use 12.14
+Now using node v12.14.1 (npm v6.13.4)
+(base) Thu Oct 01 20:38:33:[mainline !?+]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ npm i yarn
+npm WARN rm not removing /Volumes/workplace/local/repos/react-typescript-rails-simple-integration/node_modules/.bin/semver as it wasn't installed by /Volumes/workplace/local/repos/react-typescript-rails-simple-integration/node_modules/semver
+npm WARN rm not removing /Volumes/workplace/local/repos/react-typescript-rails-simple-integration/node_modules/.bin/nopt as it wasn't installed by /Volumes/workplace/local/repos/react-typescript-rails-simple-integration/node_modules/nopt
+npm WARN rm not removing /Volumes/workplace/local/repos/react-typescript-rails-simple-integration/node_modules/.bin/json5 as it wasn't installed by /Volumes/workplace/local/repos/react-typescript-rails-simple-integration/node_modules/json5
+
+> yarn@1.22.10 preinstall /Volumes/workplace/local/repos/react-typescript-rails-simple-integration/node_modules/yarn
+> :; (node ./preinstall.js > /dev/null 2>&1 || true)
+
++ yarn@1.22.10
+removed 1007 packages, updated 1 package and audited 1 package in 16.772s
+found 0 vulnerabilities
+
+(base) Thu Oct 01 20:39:00:[mainline !?+]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ yarn install
+yarn install v1.22.10
+info No lockfile found.
+warning package-lock.json found. Your project contains lock files generated by tools other than Yarn. It is advised not to mix package managers in order to avoid resolution inconsistencies caused by unsynchronized lock files. To clear this warning, remove package-lock.json.
+[1/4] 🔍  Resolving packages...
+warning @rails/webpacker > node-sass > request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+warning @rails/webpacker > node-sass > node-gyp > request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+warning @rails/webpacker > node-sass > request > har-validator@5.1.5: this library is no longer supported
+warning @rails/webpacker > webpack > watchpack > watchpack-chokidar2 > chokidar@2.1.8: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.
+warning @rails/webpacker > webpack > watchpack > watchpack-chokidar2 > chokidar > fsevents@1.2.13: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+warning @rails/webpacker > webpack > micromatch > snapdragon > source-map-resolve > resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+warning @rails/webpacker > webpack > micromatch > snapdragon > source-map-resolve > urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+warning webpack-dev-server > chokidar@2.1.8: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+warning " > @babel/preset-react@7.10.4" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/preset-react > @babel/plugin-transform-react-display-name@7.10.4" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/preset-react > @babel/plugin-transform-react-jsx-self@7.10.4" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/preset-react > @babel/plugin-transform-react-jsx-development@7.11.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/preset-react > @babel/plugin-transform-react-jsx@7.10.4" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/preset-react > @babel/plugin-transform-react-pure-annotations@7.10.4" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/preset-react > @babel/plugin-transform-react-jsx-source@7.10.5" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning "@babel/preset-react > @babel/plugin-transform-react-jsx-self > @babel/plugin-syntax-jsx@7.10.4" has unmet peer dependency "@babel/core@^7.0.0-0".
+warning " > webpack-dev-server@3.11.0" has unmet peer dependency "webpack@^4.0.0 || ^5.0.0".
+warning "webpack-dev-server > webpack-dev-middleware@3.7.2" has unmet peer dependency "webpack@^4.0.0".
+[4/4] 🔨  Building fresh packages...
+success Saved lockfile.
+✨  Done in 98.90s.
+(base) Thu Oct 01 20:43:40:[mainline !x?+]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$
+
+
+--------
+
+(base) Thu Oct 01 20:49:10:[mainline !x?+]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ rails generate rspec:install
+Warning: the running version of Bundler (2.1.2) is older than the version that created the lockfile (2.1.4). We suggest you to upgrade to the version that created the lockfile by running `gem install bundler:2.1.4`.
+Running via Spring preloader in process 79763
+Could not find generator 'rspec:install'. Maybe you meant 'channel', 'assets' or 'scaffold'
+Run `rails generate --help` for more options.
+(base) Thu Oct 01 20:49:21:[mainline !x?+]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ bundle upgrade
+Could not find command "upgrade".
+(base) Thu Oct 01 20:49:37:[mainline !x?+]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ bundle install
+The dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.
+Using rake 13.0.1
+Following files may not be writable, so sudo is needed:
+  /Library/Ruby/Gems/2.3.0
+  /Library/Ruby/Gems/2.3.0/build_info
+  /Library/Ruby/Gems/2.3.0/cache
+  /Library/Ruby/Gems/2.3.0/doc
+  /Library/Ruby/Gems/2.3.0/extensions
+  /Library/Ruby/Gems/2.3.0/gems
+  /Library/Ruby/Gems/2.3.0/specifications
+Using concurrent-ruby 1.1.7
+Using i18n 1.8.5
+Using minitest 5.14.2
+Using thread_safe 0.3.6
+Using tzinfo 1.2.7
+Using activesupport 5.2.4.4
+Using builder 3.2.4
+Using erubi 1.9.0
+Using mini_portile2 2.4.0
+Using nokogiri 1.10.10
+Using rails-dom-testing 2.0.3
+Using crass 1.0.6
+Using loofah 2.7.0
+Using rails-html-sanitizer 1.3.0
+Using actionview 5.2.4.4
+Using rack 2.2.3
+Using rack-test 1.1.0
+Using actionpack 5.2.4.4
+Using nio4r 2.5.2
+Using websocket-extensions 0.1.5
+Using websocket-driver 0.7.3
+Using actioncable 5.2.4.4
+Using globalid 0.4.2
+Using activejob 5.2.4.4
+Using mini_mime 1.0.2
+Using mail 2.7.1
+Using actionmailer 5.2.4.4
+Using activemodel 5.2.4.4
+Using arel 9.0.0
+Using activerecord 5.2.4.4
+Using mimemagic 0.3.5
+Using marcel 0.3.3
+Using activestorage 5.2.4.4
+Using public_suffix 4.0.6
+Using addressable 2.7.0
+Using io-like 0.3.1
+Using archive-zip 0.12.0
+Using bindex 0.8.1
+Using msgpack 1.3.3
+Using bootsnap 1.4.8
+Using bundler 2.1.4
+Using byebug 11.0.1
+Using regexp_parser 1.8.1
+Using xpath 3.2.0
+Using capybara 3.15.1
+Using childprocess 3.0.0
+Using chromedriver-helper 2.1.1
+Using coffee-script-source 1.12.2
+Using execjs 2.7.0
+Using coffee-script 2.4.1
+Using method_source 1.0.0
+Using thor 1.0.1
+Using railties 5.2.4.4
+Using coffee-rails 4.2.2
+Using ffi 1.13.1
+Using jbuilder 2.10.1
+Using rb-fsevent 0.10.4
+Using rb-inotify 0.10.1
+Using ruby_dep 1.5.0
+Using listen 3.1.5
+Using puma 3.12.6
+Using rack-proxy 0.6.5
+Using sprockets 3.7.2
+Using sprockets-rails 3.2.2
+Using rails 5.2.4.4
+Using rubyzip 1.3.0
+Using sass-listen 4.0.0
+Using sass 3.7.4
+Using tilt 2.0.10
+Using sass-rails 5.0.7
+Using selenium-webdriver 3.142.7
+Using spring 2.0.2
+Using spring-watcher-listen 2.0.1
+Using sqlite3 1.4.2
+Using turbolinks-source 5.2.0
+Using turbolinks 5.2.1
+Using uglifier 4.2.0
+Using web-console 3.7.0
+Using webpacker 4.3.0
+Bundle complete! 19 Gemfile dependencies, 80 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+(base) Thu Oct 01 20:49:56:[mainline !x?+]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ bundle -v
+Bundler version 2.1.4
+(base) Thu Oct 01 20:50:04:[mainline !x?+]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ bin/rails s
+Warning: the running version of Bundler (2.1.2) is older than the version that created the lockfile (2.1.4). We suggest you to upgrade to the version that created the lockfile by running `gem install bundler:2.1.4`.
+=> Booting Puma
+=> Rails 5.2.4.4 application starting in development
+=> Run `rails server -h` for more startup options
+/Users/narensub/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/actionpack-5.2.4.4/lib/action_dispatch/middleware/stack.rb:37: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/Users/narensub/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/actionpack-5.2.4.4/lib/action_dispatch/middleware/static.rb:111: warning: The called method `initialize' is defined here
+Puma starting in single mode...
+* Version 3.12.6 (ruby 2.7.0-p0), codename: Llamas in Pajamas
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://localhost:3175
+Use Ctrl-C to stop
+Started GET "/" for ::1 at 2020-10-01 20:52:54 -0500
+Processing by WelcomeController#index as HTML
+/Users/narensub/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activesupport-5.2.4.4/lib/active_support/messages/rotator.rb:28: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/Users/narensub/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activesupport-5.2.4.4/lib/active_support/messages/rotator.rb:6: warning: The called method `initialize' is defined here
+/Users/narensub/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/actionview-5.2.4.4/lib/action_view/view_paths.rb:11: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/Users/narensub/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/actionview-5.2.4.4/lib/action_view/lookup_context.rb:128: warning: The called method `template_exists?' is defined here
+  Rendering welcome/index.html.erb within layouts/application
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Volumes/workplace/local/repos/react-typescript-rails-simple-integration/public/packs
+[Webpacker]
+WARNING: We noticed you're using the `useBuiltIns` option without declaring a core-js version. Currently, we assume version 2.x when no version is passed. Since this default version will likely change in future versions of Babel, we recommend explicitly setting the core-js version you are using via the `corejs` option.
+
+You should also be sure that the version you pass to the `corejs` option matches the version specified in your `package.json`'s `dependencies` section. If it doesn't, you need to run one of the following commands:
+
+  npm install --save core-js@2    npm install --save core-js@3
+  yarn add core-js@2              yarn add core-js@3
+
+
+  Rendered welcome/index.html.erb within layouts/application (20361.5ms)
+Completed 200 OK in 26411ms (Views: 26402.8ms | ActiveRecord: 0.0ms)
+
+
+/Users/narensub/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/actionpack-5.2.4.4/lib/action_dispatch/middleware/cookies.rb:647: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/Users/narensub/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activesupport-5.2.4.4/lib/active_support/message_encryptor.rb:150: warning: The called method `encrypt_and_sign' is defined here
+/Users/narensub/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activesupport-5.2.4.4/lib/active_support/message_encryptor.rb:175: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/Users/narensub/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/activesupport-5.2.4.4/lib/active_support/messages/metadata.rb:17: warning: The called method `wrap' is defined here
+^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2020-10-01 20:55:03 -0500 ===
+- Goodbye!
+Exiting
+(base) Thu Oct 01 20:55:03:[mainline !x?+]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+
+
+----------
+
+(base) Thu Oct 01 21:05:08:[mainline !x?+]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ rails generate rspec:install
+Warning: the running version of Bundler (2.1.2) is older than the version that created the lockfile (2.1.4). We suggest you to upgrade to the version that created the lockfile by running `gem install bundler:2.1.4`.
+Running via Spring preloader in process 17572
+      create  .rspec
+      create  spec
+      create  spec/spec_helper.rb
+      create  spec/rails_helper.rb
+
+
+==========
