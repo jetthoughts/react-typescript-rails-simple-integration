@@ -576,4 +576,54 @@ Running via Spring preloader in process 39792
 
 ------
 
+(base) Sat Oct 03 14:03:49:[mainline !?+>]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$ rails generate scaffold preview
+Warning: the running version of Bundler (2.1.2) is older than the version that created the lockfile (2.1.4). We suggest you to upgrade to the version that created the lockfile by running `gem install bundler:2.1.4`.
+[DEPRECATED] `Bundler.with_clean_env` has been deprecated in favor of `Bundler.with_unbundled_env`. If you instead want the environment before bundler was originally loaded, use `Bundler.with_original_env` (called at /Users/narensub/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/spring-2.0.2/lib/spring/application_manager.rb:95)
+/Users/narensub/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/actionpack-5.2.4.4/lib/action_dispatch/middleware/stack.rb:37: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+/Users/narensub/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/actionpack-5.2.4.4/lib/action_dispatch/middleware/static.rb:111: warning: The called method `initialize' is defined here
+Running via Spring preloader in process 18180
+      invoke  active_record
+      create    db/migrate/20201003190427_create_previews.rb
+      create    app/models/preview.rb
+      invoke    rspec
+      create      spec/models/preview_spec.rb
+      invoke  resource_route
+       route    resources :previews
+      invoke  scaffold_controller
+      create    app/controllers/previews_controller.rb
+      invoke    erb
+      create      app/views/previews
+      create      app/views/previews/index.html.erb
+      create      app/views/previews/edit.html.erb
+      create      app/views/previews/show.html.erb
+      create      app/views/previews/new.html.erb
+      create      app/views/previews/_form.html.erb
+      invoke    rspec
+      create      spec/requests/previews_spec.rb
+      create      spec/views/previews/edit.html.erb_spec.rb
+      create      spec/views/previews/index.html.erb_spec.rb
+      create      spec/views/previews/new.html.erb_spec.rb
+      create      spec/views/previews/show.html.erb_spec.rb
+      create      spec/routing/previews_routing_spec.rb
+      invoke    helper
+      create      app/helpers/previews_helper.rb
+      invoke      rspec
+      create        spec/helpers/previews_helper_spec.rb
+      invoke    jbuilder
+      create      app/views/previews/index.json.jbuilder
+      create      app/views/previews/show.json.jbuilder
+      create      app/views/previews/_preview.json.jbuilder
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/previews.coffee
+      invoke    scss
+      create      app/assets/stylesheets/previews.scss
+      invoke  scss
+      create    app/assets/stylesheets/scaffolds.scss
+(base) Sat Oct 03 14:04:28:[mainline !?+>]/Volumes/workplace/local/repos/react-typescript-rails-simple-integration
+$
+
+=========
+
 
