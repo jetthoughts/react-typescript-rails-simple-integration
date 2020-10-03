@@ -1,6 +1,5 @@
+require_relative 'textedit/wiki_grapher'
+
 class TexteditController < ApplicationController
-  def wiki
-    puts "yes"
-    # redirect_to root_path
-  end
+  include WikiGrapher
 end

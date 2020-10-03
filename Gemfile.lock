@@ -44,6 +44,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    amazing_print (1.2.1)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -239,6 +240,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  amazing_print
   bootsnap (>= 1.1.0)
   bootstrap
   byebug

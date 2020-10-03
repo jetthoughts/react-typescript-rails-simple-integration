@@ -51,7 +51,8 @@
 
   <div class="form-group">
     <label for="exampleFormControlInput1">FILENAME</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="fileName.wiki" name="wikiinput[filename]">
+    <input type="text" class="form-control" id="exampleFormControlInput1"
+           placeholder="fileName.wiki" name="wikiinput[filename]">
   </div>
 
 <!--  <div class="form-group">-->
@@ -67,7 +68,7 @@
 
   <div class="form-group">
     <label for="exampleFormControlSelect2">COLUMNS</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2">
+    <select multiple class="form-control" id="exampleFormControlSelect2" name="wikiinput[config]">
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -77,11 +78,15 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">TEMPLATE</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="wikiinput[template]"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1"
+              placeholder="item 1"
+              rows="3" name="wikiinput[template]"></textarea>
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea2">SECTIONS</label>
-    <textarea class="form-control" id="exampleFormControlTextarea2" rows="5" name="wikiinput[sections]"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea2"
+              placeholder="'kod\nsar'"
+              rows="5" name="wikiinput[sections]"></textarea>
   </div>
 <%#= f.submit %>
   <button type="submit" class="btn btn-primary my-1">Submit</button>
