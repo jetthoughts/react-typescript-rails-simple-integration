@@ -551,3 +551,29 @@ Running via Spring preloader in process 17572
 
 
 ==========
+
+$ rails g controller WikiIgrapher index
+Warning: the running version of Bundler (2.1.2) is older than the version that created the lockfile (2.1.4). We suggest you to upgrade to the version that created the lockfile by running `gem install bundler:2.1.4`.
+Running via Spring preloader in process 39792
+      create  app/controllers/wiki_igrapher_controller.rb
+       route  get 'wiki_igrapher/index'
+      invoke  erb
+      create    app/views/wiki_igrapher
+      create    app/views/wiki_igrapher/index.html.erb
+      invoke  rspec
+      create    spec/requests/wiki_igrapher_request_spec.rb
+      create    spec/views/wiki_igrapher
+      create    spec/views/wiki_igrapher/index.html.erb_spec.rb
+      invoke  helper
+      create    app/helpers/wiki_igrapher_helper.rb
+      invoke    rspec
+      create      spec/helpers/wiki_igrapher_helper_spec.rb
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/wiki_igrapher.coffee
+      invoke    scss
+      create      app/assets/stylesheets/wiki_igrapher.scss
+
+------
+
+
