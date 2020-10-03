@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+
   resources :previews
-  get '/preview' => 'previews#index'
+  # get '/preview' => 'previews#index'
 
   # post '/wiki', to: 'textedit#wiki'
   post '/wiki' => 'textedit#wiki'
