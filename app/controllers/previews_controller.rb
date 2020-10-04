@@ -1,5 +1,8 @@
+require_relative 'concerns/textedit/json_from_console'
+
 class PreviewsController < ApplicationController
   before_action :set_preview, only: [:show, :edit, :update, :destroy]
+  include JsonFromConsole
 
   # GET /previews
   # GET /previews.json
@@ -24,7 +27,11 @@ class PreviewsController < ApplicationController
   # POST /previews
   # POST /previews.json
   def create
-    @preview = Preview.new(preview_params)
+    # @preview = Preview.new(preview_params)
+
+    conv = json_convert
+    conv_hsh = JSON.parse(conv.to_json)
+    @preview = Preview.new(conv_hsh)
 
     respond_to do |format|
       if @preview.save
@@ -69,6 +76,7 @@ class PreviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def preview_params
-      params.fetch(:preview, {})
+      # params.fetch(:preview, {})
+      params.fetch(:preview, :str_input)
     end
 end

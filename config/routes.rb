@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   resources :previews
   # get '/preview' => 'previews#index'
 

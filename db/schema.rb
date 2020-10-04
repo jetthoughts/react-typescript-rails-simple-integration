@@ -10,11 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_190427) do
+ActiveRecord::Schema.define(version: 2020_10_03_214646) do
 
   create_table "previews", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "str_input"
+    t.text "json_output"
+    t.index ["str_input"], name: "index_previews_on_str_input"
   end
 
 end
