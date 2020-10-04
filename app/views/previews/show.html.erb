@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <%#= render @preview %>
+<%= label(:preview, :id, "#{@preview.id}") %>
+<br>
+<%= label(:preview, :str_input, "RTE Link:", class: "title_label") %>
+<%= link_to("#{@preview.str_input}", "#{@preview.str_input}", target: "_blank", rel: "nofollow") %>
+<br>
+<br>
+<%= label(:preview, :json_output, "Owlery Link:", class: "title_label") %>
+<%= link_to("#{@preview.json_output}", "#{@preview.json_output}", target: "_blank", rel: "nofollow") %>
+<br>
+<br>
 
 <%= link_to 'Edit', edit_preview_path(@preview) %> |
 <%= link_to 'Back', previews_path %>

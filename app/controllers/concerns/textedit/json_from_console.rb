@@ -59,7 +59,7 @@ module JsonFromConsole
     owlery_preview_link="https://owlery-#{region}-prod.corp.amazon.com/preview/#{event_type}/#{obfs_marketplace}"
     # link='http://cs-customer-notification-eu.amazon.com:17810/getNotificationContentPost?RTN.MessageID=urn%3Artn%3Amsg%3A20200805111032815945bf547944068df811715820p0eu&shipTrackEventCode=EVENT_307&orderId=304-1943067-4463569&carrierType=3P&isEeylops=true&eventType=ScheduledDeliveryReminder-Email&orderingShipmentIds=23513063050302&fulfillmentShipmentId=36407097860202&marketplaceId=4&countOfShipmentsInTheLargestOrder=1&customerId=A3TNRF0J47TXSQ&recipient=bernhard.rubenbauer%40web.de&numberOfShipmentItemEntitiesInTheLargestOrder=1&orderIds=304-1943067-4463569&RTN.RetryCount=1&trackingId=002200218206210000B00011'
     # result="https://owlery-eu-prod.corp.amazon.com/preview/ScheduledDeliveryReminder-Email/A1PA6795UKMFR9?renderParamsJson=..."
-    "#{owlery_preview_link}?renderParamsJson={\"#{render_params}\"}"
+    "#{owlery_preview_link}?renderParamsJson=#{json_str}"
   end
 
   def json_convert_with_objects

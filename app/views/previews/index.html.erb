@@ -2,16 +2,28 @@
 
 <h1>Previews</h1>
 
+<%= link_to 'New Preview', new_preview_path %>
+
+<%= button_to 'New Preview - no routes', new_preview_path %>
+
+<br>
+
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th colspan="1">id</th>
+      <th colspan="1">input</th>
+      <th colspan="3">links</th>
+<!--      <th colspan="3">e</th>-->
+<!--      <th colspan="3">d</th>-->
     </tr>
   </thead>
 
   <tbody>
     <% @previews.each do |preview| %>
       <tr>
+        <td><%= label(:preview, :id, "#{preview.id}", class: "title_label") %></td>
+        <td><%= label(:preview, :str_input, "#{preview.str_input.to_s.truncate 160}", class: "title_label") %></td>
         <td><%= link_to 'Show', preview %></td>
         <td><%= link_to 'Edit', edit_preview_path(preview) %></td>
         <td><%= link_to 'Destroy', preview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -20,6 +32,3 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Preview', new_preview_path %>
