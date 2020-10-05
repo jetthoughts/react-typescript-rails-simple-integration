@@ -15,6 +15,11 @@ class PreviewsController < ApplicationController
   def show
   end
 
+  def res
+    # render "previews/_see", locals: { prev: @preview}, layout: false
+    render 'previews/_see', locals: { prev: @preview}, layout: false
+  end
+
   # GET /previews/new
   def new
     @preview = Preview.new
@@ -29,9 +34,7 @@ class PreviewsController < ApplicationController
   def create
     # @preview = Preview.new(preview_params)
 
-    conv = json_convert
-    conv_hsh = JSON.parse(conv.to_json)
-    @preview = Preview.new(conv_hsh)
+    @preview = Preview.new(make_preview_hsh)
 
     respond_to do |format|
       if @preview.save
@@ -47,8 +50,11 @@ class PreviewsController < ApplicationController
   # PATCH/PUT /previews/1
   # PATCH/PUT /previews/1.json
   def update
+    # set_preview
+    # @prev = @preview
+    @prev = set_preview
     respond_to do |format|
-      if @preview.update(preview_params)
+      if @preview.update(make_preview_hsh)
         format.html { redirect_to @preview, notice: 'Preview was successfully updated.' }
         format.json { render :show, status: :ok, location: @preview }
       else
@@ -69,7 +75,13 @@ class PreviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+  def make_preview_hsh
+    conv = json_convert
+    conv_hsh = JSON.parse(conv.to_json)
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
     def set_preview
       @preview = Preview.find(params[:id])
     end

@@ -88,6 +88,7 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    io-console (0.5.6)
     io-like (0.3.1)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
@@ -160,6 +161,8 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.8.1)
+    reline (0.1.4)
+      io-console (~> 0.5)
     require_all (3.0.0)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
@@ -264,6 +267,7 @@ DEPENDENCIES
   mini_racer
   puma (~> 3.11)
   rails (~> 5.2.3)
+  reline (>= 0.1.4)
   require_all
   rspec-rails (~> 4.0.1)
   rspec-snapshot

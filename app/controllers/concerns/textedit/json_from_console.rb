@@ -4,6 +4,9 @@ require 'amazing_print'
 require 'active_support/all'
 require 'active_model'
 
+require_relative '../../../../app/util/text_utils'
+# require_rel '../../../../app/util/text_utils'
+
 class BaseJsonModel
   include ActiveModel::Serializers::JSON
 
@@ -30,14 +33,30 @@ end
 # puts asin
 
 module JsonFromConsole
+  include TextUtil
+
   def index
     redirect_to '/textedit/json_convert'
   end
 
   def json_convert
     json_params_hsh = json_params
-    ap json_params_hsh
-    json_params_hsh['json_output'] = make_output json_params_hsh['str_input']
+    begin
+      ap json_params_hsh
+      # json_params_hsh['json_output'] = make_output(json_params_hsh['str_input']) rescue 'Error'
+      json_params_hsh['json_output'] = make_output(json_params_hsh['str_input'])
+      # json_params_hsh
+    rescue Exception => e
+      msg = "InternalError: #{e}"
+      puts msg
+      json_params_hsh['json_output'] = msg
+      # return json_params_hsh
+    else
+      puts "Success"
+      # return json_params_hsh
+    ensure
+      puts "metric = done"
+    end
     json_params_hsh
   end
 
@@ -48,15 +67,15 @@ module JsonFromConsole
     # json_res = JSON.parse json_str
 
     regex_region = /http.+cs-customer-notification-([a-z]+).amazon.*urn.*rtn.*msg.*[a-z0-9]*?&/
-    region = link.match(regex_region)[1]
+    region = match_or_throw('region', link, regex_region, 1)
     regex_event = /&eventType=([a-zA-Z0-9_\-]+)&/
-    event_type = link.match(regex_event)[1]
+    event_type = match_or_throw('event_type', link, regex_event, 1)
     regex_marketplace = '&marketplaceId=([0-9]+)&'
-    marketplace = link.match(regex_marketplace)[1]
-    obfs_marketplace =MARKETPLACE_OBFS[marketplace]
-    puts "$region=#{region} $event_type=#{event_type} $marketplace=#{marketplace} => #{obfs_marketplace}"
+    marketplace = match_or_throw('marketplace', link, regex_marketplace, 1)
+    obfs_marketplace = MARKETPLACE_OBFS[marketplace]
+    puts "region=#{region} event_type=#{event_type} marketplace=#{marketplace} => #{obfs_marketplace}"
 
-    owlery_preview_link="https://owlery-#{region}-prod.corp.amazon.com/preview/#{event_type}/#{obfs_marketplace}"
+    owlery_preview_link = "https://owlery-#{region}-prod.corp.amazon.com/preview/#{event_type}/#{obfs_marketplace}"
     # link='http://cs-customer-notification-eu.amazon.com:17810/getNotificationContentPost?RTN.MessageID=urn%3Artn%3Amsg%3A20200805111032815945bf547944068df811715820p0eu&shipTrackEventCode=EVENT_307&orderId=304-1943067-4463569&carrierType=3P&isEeylops=true&eventType=ScheduledDeliveryReminder-Email&orderingShipmentIds=23513063050302&fulfillmentShipmentId=36407097860202&marketplaceId=4&countOfShipmentsInTheLargestOrder=1&customerId=A3TNRF0J47TXSQ&recipient=bernhard.rubenbauer%40web.de&numberOfShipmentItemEntitiesInTheLargestOrder=1&orderIds=304-1943067-4463569&RTN.RetryCount=1&trackingId=002200218206210000B00011'
     # result="https://owlery-eu-prod.corp.amazon.com/preview/ScheduledDeliveryReminder-Email/A1PA6795UKMFR9?renderParamsJson=..."
     "#{owlery_preview_link}?renderParamsJson=#{json_str}"

@@ -45,6 +45,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'amazing_print'
 #https://stackoverflow.com/questions/51926146/ruby-on-rails-autoprefixer-doesn-t-support-node-v4-9-1-update-it-how-to-fix
+gem 'reline', '>= 0.1.4'
 gem 'mini_racer' #Autoprefixer doesn’t support Node v13.6.0. Update it.
 gem 'rspec-snapshot'
 gem 'require_all'

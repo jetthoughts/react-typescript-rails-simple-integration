@@ -20,3 +20,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap
+
+// $("#res").load("/previews/show")
+$("#res").load("/previews/edit")

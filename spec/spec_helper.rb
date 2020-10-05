@@ -3,6 +3,7 @@ require 'require_all'
 # require_all Dir.glob('app/**/*.rb')
 # require_all Dir.glob('app/controllers/**/*.rb')
 require_all Dir.glob('app/controllers/concerns/**/*.rb')
+require_all Dir.glob('app/util/**/*.rb')
 require 'rspec/snapshot'
 require 'amazing_print'
 
