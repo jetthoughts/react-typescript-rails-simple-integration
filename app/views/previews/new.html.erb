@@ -3,3 +3,8 @@
 <%= render 'form', preview: @preview %>
 
 <%= link_to 'Back', previews_path %>
+
+<div id="res">
+  <p id="notice"><%= notice %></p>
+  <%= render 'see', prev: @preview %>
+</div>

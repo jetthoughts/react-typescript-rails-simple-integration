@@ -17,7 +17,8 @@ class PreviewsController < ApplicationController
 
   def res
     # render "previews/_see", locals: { prev: @preview}, layout: false
-    render 'previews/_see', locals: { prev: @preview}, layout: false
+    render 'previews/_see', locals: { prev: @preview, notice: 'Preview was successfully created.'}, layout: false
+    # render :new, locals: { prev: @preview, notice: 'Preview was successfully created.'}, layout: false
   end
 
   # GET /previews/new
@@ -33,13 +34,18 @@ class PreviewsController < ApplicationController
   # POST /previews.json
   def create
     # @preview = Preview.new(preview_params)
-
     @preview = Preview.new(make_preview_hsh)
-
+    # @preview = @prev.update(make_preview_hsh) # todo: locals not accessible in lifecycle
     respond_to do |format|
       if @preview.save
-        format.html { redirect_to @preview, notice: 'Preview was successfully created.' }
-        format.json { render :show, status: :created, location: @preview }
+        # format.html { redirect_to @preview, notice: 'Preview was successfully created.' }
+        format.html { render :new, notice: 'Preview was successfully created.', preview: @preview }
+        #
+        # format.html { res }
+        # format.json { render :show, status: :created, location: @preview, notice: 'Preview was successfully created.' }
+        format.json { render :new, status: :created, location: @preview, notice: 'Preview was successfully created.' }
+        #
+        # res
       else
         format.html { render :new }
         format.json { render json: @preview.errors, status: :unprocessable_entity }

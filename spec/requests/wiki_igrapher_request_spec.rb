@@ -4,7 +4,8 @@ RSpec.describe "WikiIgraphers", type: :request do
 
   describe "GET /index" do
     it "returns http success" do
-      get "/wiki_igrapher/index"
+      # get "/wiki_igrapher/index" # todo
+      get "/"
       expect(response).to have_http_status(:success)
     end
   end
