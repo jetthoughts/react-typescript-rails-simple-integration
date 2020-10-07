@@ -45,14 +45,65 @@ code {
 
 //-----
 //ACE
+//#editor {
+//  position: relative;
+//  height: 400px;
+//  width: 400px
+//}
+
+//#editor {
+//  position: relative;
+//  height: 100%;
+//  width: 100%;
+//}
+
+//#editor {
+//  position: relative;
+//  //position: absolute;
+//  top: 0;
+//  right: 0;
+//  bottom: 0;
+//  left: 0;
+//  height: 500px;
+//  //width: 30%;
+//}
+
+#parent {
+  //width:100%;
+  height: 600px;
+  display:inline-block;
+  position:relative;
+}
 #editor {
-  position: relative;
-  height: 400px;
-  width: 400px
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  //width: 100%;
+  //height: 100%;
+  //overflow: auto;
+  //resize: both;
+}
+.ace_content {
+  height: inherit;
 }
 
 textarea {
   white-space: pre;
-  font-size: 12px
+  //font-size: 10px
+  //font-size: small;
+}
+
+.textinput {
+  font-size: small;
+}
+.textoutput {
+  font-size: x-small;
+}
+
+.scroll {
+  //max-height: 100px;
+  overflow-y: scroll;
 }
 

@@ -86,8 +86,20 @@ $(document).ready(function () {
     }
   }
 
-  $("#run").click(() => {
-    if(!checkFormValidity()){ return }
+  $("#load").on('click', () => {
+    // $("#sec").val(sample_section)
+    // $("#temp").val(sample_template)
+    $("#dep").val(sample_depth || 0)
+
+    $("#sec").val($("#sec2").text())
+    $("#temp").val($("#temp2").text())
+  });
+
+  // $("#run").click(() => {
+  $("#run").on('click', () => {
+    if (!checkFormValidity()) {
+      return
+    }
 
     console.log('Processing...')
     // postData('/index.json', getFormData($('form')))
@@ -112,20 +124,25 @@ $(document).ready(function () {
       .then(data => {
         console.log(data); // JSON data parsed by `data.json()` call
         a = data;
-        $("#res").text(JSON.stringify(data));
+        //for debugging
+        // $("#res").text(JSON.stringify(data));
+
         // $("#editor").text(JSON.stringify(data));
         // $("#editor").text(JSON.stringify(data));
         output = data['output']
-        editor1 = loadAce('editor1', 'mode1', 'ace/mode/text');
+        // editor1 = loadAce('editor1', 'mode1', 'ace/mode/text');
         $("#out").html(output);
         editor1.setValue(output);
+        // editor1.setValue(output);
+        // editor1.resize();
 
-        // json = JSON.stringify(data['input'] || {}, null, '\t')
-        delete data['output'];
-        json = JSON.stringify(data || {}, null, '\t')
-        // json = data
-        editor2 = loadAce('editor2', 'mode2', 'ace/mode/json');
-        editor2.setValue(json);
+        // // json = JSON.stringify(data['input'] || {}, null, '\t')
+        // delete data['output'];
+        // json = JSON.stringify(data || {}, null, '\t')
+        // // json = data
+        // editor2 = loadAce('editor2', 'mode2', 'ace/mode/json');
+        // editor2.setValue(json);
+
         // editor.resize();
         // editor.renderer.updateFull();
 
@@ -133,8 +150,12 @@ $(document).ready(function () {
         // $("#tog").collapse('show');
         $("#rescard").collapse('show');
         // $("#rescard").focusin()
-      }).then(data => {
-      reset_button();
+        // }).then(data => {
+        // reset_button();
+      }).finally(() => {
+      editor1.resize();
+      editor1.renderer.updateFull();
+      reset_button()
     });
 
     // var data = await postData('/', getFormData($('form'))); // todo: wynw!?
@@ -143,6 +164,8 @@ $(document).ready(function () {
 
   // ---------
 // Ace
+//   editor1 = loadAce('editor1', 'mode1', 'ace/mode/text');
+  editor1 = loadAce('editor', 'mode', 'ace/mode/xquery');
 
   // https://jsfiddle.net/xlaptop2001/y70gL3kv/ // todo: ace file loader and saver
   // default_editor = loadAce('editor', 'mode', 'ace/mode/javascript');
@@ -152,15 +175,17 @@ $(document).ready(function () {
     editor.getSession().setUseWorker(false);
     editor.setTheme("ace/theme/monokai");
     editor.getSession().setMode(default_mode);
-    editor.resize();
-    editor.renderer.updateFull();
+    // editor.resize();
+    // editor.renderer.updateFull();
 
     // editor.setValue(JSON.stringify(jsonDoc, null, '\t'));
-    $('#'+mode_id).on('change', function (ev) {
+    $('#' + mode_id).on('change', function (ev) {
       var mode = $('#mode option:selected').attr('value');
       console.log(mode)
       editor.getSession().setMode(mode);
     });
+
+    $('#' + mode_id).val(default_mode)
     return editor
   }
 

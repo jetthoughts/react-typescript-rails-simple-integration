@@ -77,12 +77,16 @@ module WikiGrapher
 
   private
 
+  def read_yml(filename,dir)
+    File.read("#{dir}/data/#{filename}.yml")
+  end
+
   def load_sample_presets
     @sample = {}
-    sections = prepare_yml 'sections', './spec/helpers'
-    template = prepare_yml 'template', './spec/helpers'
-    @sample['sections'] = sections.to_yaml
-    @sample['template'] = template.to_yaml
+    sections = read_yml 'sections', './spec/helpers'
+    template = read_yml 'template', './spec/helpers'
+    @sample['sections'] = sections
+    @sample['template'] = template
   end
 
   def wiki_params

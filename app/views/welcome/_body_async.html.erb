@@ -6,14 +6,14 @@
   <!--           placeholder="fileName.wiki" name="filename">-->
   <!--  </div>-->
   <div class="form-group">
-    <label for="exampleFormControlInput1">DEPTH</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1"
-           placeholder="0" name="filename" value="0">
+    <label for="dep">DEPTH (1,2,3...)</label>
+    <input type="text" class="form-control textinput" id="dep"
+           placeholder="1 or above" name="depth">
   </div>
 
   <div class="form-group">
-    <label for="exampleFormControlSelect2">COLUMNS</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2" name="layout">
+    <label for="lay">LAYOUT (graph columns)</label>
+    <select multiple class="form-control" id="lay" name="layout">
       <!--      todo: make preset loading dynamic-->
       <option value="default" selected>['60D1D', '4D1H', '5H5m']</option>
       <option value="old_default">['30D1D', '7D1H', '8H5m']</option>
@@ -22,45 +22,61 @@
   </div>
 
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">TEMPLATE</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1"
+    <label for="temp">TEMPLATE.yml</label>
+    <textarea class="form-control textinput" id="temp"
               placeholder="optional"
-              rows="3" name="template"><%= @sample['template'] %></textarea>
+              rows="5" name="template"></textarea>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlTextarea2">SECTIONS</label>
-    <textarea class="form-control" id="exampleFormControlTextarea2"
+    <label for="sec">SECTIONS.yml</label>
+    <textarea class="form-control textinput" id="sec"
               placeholder="'kod<br>sar'"
-              rows="5" name="sections" required><%= @sample['sections'] %></textarea>
+              rows="5" name="sections" required></textarea>
   </div>
 <%#= f.submit %>
   <!--  <button type="submit" class="btn btn-primary my-1">Submit</button>-->
   <button id="run" type="button" class="btn btn-primary" data-loading-text="Processing ...">Process</button>
-  <button id="example" type="button" class="btn btn-secondary" data-loading-text="Load Example">Load Example</button>
+  <button id="load" type="button" class="btn btn-secondary" data-loading-text="Load Example">Load Example</button>
 
 <% end %>
+
+<textarea id="sec2" hidden><%= @sample['sections'] %></textarea>
+<textarea id="temp2" hidden><%= @sample['template'] %></textarea>
+
+<script>
+  sample_section = `<%#= @sample['sections'] %>`;
+  sample_template = `<%#= @sample['template'] %>`;
+  sample_depth = `<%= @sample['depth'] || 1 %>`;
+</script>
+
 <!--</form>-->
-<div id="wiki">
+<div id="wiki" class="card well">
   <!--  <p>-->
   <!--    <button id="tog" hidden="hidden" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">-->
   <!--      toggle result-->
   <!--    </button>-->
   <!--  </p>-->
 
-  <div id="rescard" class="collapse" id="collapseExample">
-    <div class="card card-body" style="white-space: pre;">
-      <div id="out"></div>
-      <%= render 'ace1' %>
+  <div id="rescard" class="card collapse show" style="height: 600px;">
+    <div class="card card-body scroll" style="white-space: pre;">
+      <!--      <div id="out"></div>-->
+      <textarea class="form-control textoutput" id="out" rows="50" readonly></textarea>
+      <%#= render 'ace1' %>
     </div>
     <div class="card card-body">
-      <%#= render 'ace' %>
-      <%= render 'ace2' %>
+      <%= render 'ace' %>
+      <%#= render 'ace1' %>
+      <%#= render 'ace2' %>
     </div>
-    <div class="card card-body">
-      <p id="res"></p>
-    </div>
+<!--    <div class="card card-body">-->
+<!--      <p id="res"></p>-->
+<!--    </div>-->
   </div>
-
+<!--  <div class="jumbotron jumbotron-fluid">-->
+<!--    <div class="container">-->
+      <%#= render 'ace' %>
+<!--    </div>-->
+<!--  </div>-->
 </div>
 
 <!--<div id="editor">function foo(items) {-->

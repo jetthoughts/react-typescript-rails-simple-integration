@@ -14,7 +14,8 @@ module WikiIgrapherHelper
       'long' => ['60D1D', '30D1D', '7D1H', '4D1H', '5H5m', '3H5m'],
   }
 
-  HTML_BREAK = "<br>"
+# HTML_BREAK = "<br>"
+  HTML_BREAK = "\n"
   SECTIONS = 'sections'
   TEMPLATES = 'template'
   DEPTH = 'depth'
@@ -23,21 +24,29 @@ module WikiIgrapherHelper
   def wiki_html_print(wikiinput)
     @wiki = []
     sections = wikiinput[SECTIONS]
-    template = wikiinput[TEMPLATES]
-    depth = wikiinput[DEPTH]
+    template = check_absent(wikiinput[TEMPLATES])
+    depth = wikiinput[DEPTH].to_i
     @layout = wikiinput[LAYOUT] # todo: non stateful?
 
     make_comment sections, SECTIONS
-    make_comment template, TEMPLATES
+    if template.nil?
+      make_comment template, TEMPLATES
+    end
     make_comment depth, DEPTH
 
-    @wiki << spacer(4)
-    make_wiki YAML.load(sections), depth, YAML.load(template)
+    @wiki << spacer(3)
+
+    make_wiki YAML.load(sections), depth, (template ? YAML.load(template): nil)
 
     @wiki.join "\n"
   end
 
   protected
+  def check_absent item
+    return nil if item.nil? || item.strip.empty?
+    item
+  end
+
   TIME_UNIT_MAP = {
       'D' => 'Day',
       'H' => 'Hour',
@@ -109,7 +118,7 @@ module WikiIgrapherHelper
 
     # cols.print_graphs
     @wiki << '|'
-    graph_sep = " |\n"
+    graph_sep = " |#{HTML_BREAK}"
     @wiki << graph_cols.join(graph_sep)
   end
 
@@ -145,7 +154,7 @@ module WikiIgrapherHelper
 
   def make_wiki(node, level = 1, template_map = nil)
     # obj == sections_or_graph_or_template_subs
-    @wiki << spacer(2)
+    # @wiki << spacer(2)
     node.each do |title, obj|
       type = obj.class.to_s
       @wiki << make_wiki_title(title, level)
@@ -157,32 +166,33 @@ module WikiIgrapherHelper
       else
         raise 'yml not right!'
       end
-      @wiki << spacer(2)
+      @wiki << spacer(1)
     end
   end
 
   def make_comment(yml_str, title)
     @wiki << '{{comment}}'
-    (surround_spacer(1) { title.capitalize }) if title
+    @wiki << (surround_spacer(1) { title.capitalize }) if title
+    @wiki << '=' * title.size if title
+    # @wiki << spacer
     @wiki << yml_str
     @wiki << '{{/comment}}'
     @wiki << spacer(2)
   end
 
-  def prepare_yml(filename, dir = '.')
-    yml_str = File.read("#{dir}/data/#{filename}.yml")
-    # print_comment yml_str, filename
-    YAML.load(yml_str)
-  end
-
   def spacer(n = 1)
     # "\n" * n
-    # HTML_BREAK * n
-    "#{HTML_BREAK}\n" * n
+    HTML_BREAK * n
+    # "#{HTML_BREAK}\n" * n
   end
 
   def surround_spacer(n = 1)
     spacer(n) + yield + spacer(n)
   end
 
+  def prepare_yml(filename, dir = '.')
+    yml_str = File.read("#{dir}/data/#{filename}.yml")
+    # print_comment yml_str, filename
+    # YAML.load(yml_str)
+  end
 end
