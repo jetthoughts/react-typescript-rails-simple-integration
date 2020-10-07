@@ -1,0 +1,33 @@
+---
+Owen: 'Eeylops:PredicateDataAggregation:OwenContext'
+ShipTrack:
+  BaseSimplifiedShipTrack: 'Eeylops:PredicateDataAggregation:SimplifiedShipTrackContextOrder'
+  Extended:
+    GMP: Eeylops:GmpEventPredicateDataAggregationAdapter:ShipTrackContext
+    ShipTrack: Eeylops:PredicateDataAggregation:ShipTrackContext
+    Unified: Eeylops:PredicateDataAggregationAdapter:ShipTrackContext
+OptIn:
+  Test: Test_ShipTrackContext.Eeylops:PredicateDataAggregation:GetLineItemsDetailsForOrderId
+  Prod: Eeylops:PredicateDataAggregation:GetLineItemsDetailsForOrderId
+
+#  2.2.1 Owen
+#Eeylops:PredicateDataAggregation:OwenContext
+#
+#  2.2.2 ShipTrack
+#2.2.2.1 Base: Simplified ShipTrack
+#Eeylops:PredicateDataAggregation:SimplifiedShipTrackContextOrder
+#
+#  2.2.2.2 Extended
+#  2.2.2.2.1 GMP
+#  GMP
+#Eeylops:GmpEventPredicateDataAggregationAdapter:ShipTrackContext
+#
+#  2.2.2.2.2 ShipTrack
+#  ST
+#Eeylops:PredicateDataAggregation:ShipTrackContext
+#
+#  2.2.2.2.3 Unified
+#  UNI
+#Eeylops:PredicateDataAggregationAdapter:ShipTrackContext
+#
+# https://slapshot.integ.amazon.com/slapshot-dashboard.html#/slap/Eeylops/Test_ShipTrackContext/Eeylops:PredicateDataAggregation:GetLineItemsDetailsForOrderId

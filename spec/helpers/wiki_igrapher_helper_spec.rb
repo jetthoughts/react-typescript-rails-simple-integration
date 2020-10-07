@@ -13,3 +13,44 @@ require 'rails_helper'
 RSpec.describe WikiIgrapherHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end
+
+# require 'yaml'
+
+describe "wiki_print" do
+  include WikiIgrapherHelper
+  after() do
+
+  end
+
+  def get_wiki_sections(sections, depth, template = nil)
+    wikiinput = {
+        'sections' => sections,
+        'template' => template,
+        'depth' => depth,
+    }
+    wiki_html_print wikiinput
+  end
+
+  THIS_DIR = File.dirname(__FILE__)
+  context "kod" do
+    it 'preset_slapshot_indiv' do
+      sections = prepare_yml 'sections', THIS_DIR
+      template = prepare_yml 'template', THIS_DIR
+      res = get_wiki_sections sections, 3, template
+      expect(res).to match_snapshot 'preset_slapshot_indiv'
+    end
+
+    it 'preset_eeylops_slapshot_combined' do
+      sections = prepare_yml 'eeylops_slapshot_combined', THIS_DIR
+      res = get_wiki_sections sections, 2
+      expect(res).to match_snapshot 'preset_eeylops_slapshot_combined'
+    end
+
+    it 'preset_eeylops_slapshot_indiv' do
+      sections = prepare_yml 'eeylops_slapshot_sections', THIS_DIR
+      template = prepare_yml 'eeylops_slapshot_template', THIS_DIR
+      res = get_wiki_sections sections, 0, template
+      expect(res).to match_snapshot 'preset_eeylops_slapshot_combined'
+    end
+  end
+end

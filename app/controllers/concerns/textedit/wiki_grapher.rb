@@ -1,6 +1,9 @@
 require 'amazing_print'
 
+require_relative '../../../../app/helpers/wiki_igrapher_helper'
+
 module WikiGrapher
+  include WikiIgrapherHelper
   # before_action :set_result, only: [:wiki]
   def index
     puts "load WikiGrapher.index"
@@ -20,8 +23,14 @@ module WikiGrapher
     wikiinput = wiki_params
     puts wikiinput
     ap wikiinput
-    wikiinput['filename'] = "defaultFileName" if wikiinput['filename'].strip.empty?
-    @result = wikiinput.to_json
+    # wikiinput['filename'] = "defaultFileName" if wikiinput['filename'].strip.empty?
+    wikiinput['depth'] = 0 if wikiinput['depth'].nil?
+    @result = {}
+    # @result['input'] = JSON.pretty_generate(wikiinput)
+    # @result['input'] = JSON.pretty_generate(wikiinput.to_json).to_s
+    @result['input'] = wikiinput
+    @result['output'] = wiki_html_print(wikiinput)
+
     puts "res: #{@result}"
     # @result
 
@@ -56,7 +65,7 @@ module WikiGrapher
     respond_to do |format|
       unless @result.nil?
         # format.json { render json: @result, status: :ok }
-        format.json { render json: @result }
+        format.json { render json: @result.to_json }
       end
     end
     # res
@@ -70,10 +79,10 @@ module WikiGrapher
 
   def load_sample_presets
     @sample = {}
-    @sample['sections'] = "
-kod
-
-    sar"
+    sections = prepare_yml 'sections', './spec/helpers'
+    template = prepare_yml 'template', './spec/helpers'
+    @sample['sections'] = sections.to_yaml
+    @sample['template'] = template.to_yaml
   end
 
   def wiki_params
@@ -81,7 +90,7 @@ kod
     # params.require(:sections, :template, :filename, :config)
     res = {}
     # puts params
-    [:sections, :template, :filename, :config].each { |k| res[k.to_s] = params[k] }
+    [:sections, :template, :depth, :layout].each { |k| res[k.to_s] = params[k] }
     # puts res
     res
   end

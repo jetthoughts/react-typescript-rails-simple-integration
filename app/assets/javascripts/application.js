@@ -74,16 +74,37 @@ async function postData(url = '', data = {}) {
 //   });
 a = {}
 $(document).ready(function () {
+  function checkFormValidity() {
+    var form = $("#wikiForm")[0]
+    if (form.checkValidity()) {
+      // alert('validated');
+      console.log('wikiForm valid!')
+      return true;
+    } else {
+      form.reportValidity();
+      return false;
+    }
+  }
+
   $("#run").click(() => {
-    console.log('Processing!')
+    if(!checkFormValidity()){ return }
+
+    console.log('Processing...')
     // postData('/index.json', getFormData($('form')))
     // postData('/index', getFormData($('form')))
     // $("#tog").click();
 
+    let current_button = $("#run").html();
+
+    let reset_button = () => {
+      $("#run").prop("disabled", false);
+      $("#run").html(current_button);
+    }
+
     // disable button
-    $(this).prop("disabled", true);
+    $("#run").prop("disabled", true);
     // add spinner to button
-    $(this).html(
+    $("#run").html(
       `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...`
     );
 
@@ -94,14 +115,26 @@ $(document).ready(function () {
         $("#res").text(JSON.stringify(data));
         // $("#editor").text(JSON.stringify(data));
         // $("#editor").text(JSON.stringify(data));
-        $("#out").text(data['output']);
-        editor.setValue(JSON.stringify(data['input'] || {}, null, '\t'));
+        output = data['output']
+        editor1 = loadAce('editor1', 'mode1', 'ace/mode/text');
+        $("#out").html(output);
+        editor1.setValue(output);
+
+        // json = JSON.stringify(data['input'] || {}, null, '\t')
+        delete data['output'];
+        json = JSON.stringify(data || {}, null, '\t')
+        // json = data
+        editor2 = loadAce('editor2', 'mode2', 'ace/mode/json');
+        editor2.setValue(json);
+        // editor.resize();
+        // editor.renderer.updateFull();
+
         // $("#tog").click();
         // $("#tog").collapse('show');
         $("#rescard").collapse('show');
         // $("#rescard").focusin()
       }).then(data => {
-      $(this).prop("disabled", false);
+      reset_button();
     });
 
     // var data = await postData('/', getFormData($('form'))); // todo: wynw!?
@@ -112,20 +145,23 @@ $(document).ready(function () {
 // Ace
 
   // https://jsfiddle.net/xlaptop2001/y70gL3kv/ // todo: ace file loader and saver
-  loadAce();
+  // default_editor = loadAce('editor', 'mode', 'ace/mode/javascript');
 
-  function loadAce() {
-    editor = ace.edit("editor");
+  function loadAce(editor_div_id, mode_id, default_mode) {
+    var editor = ace.edit(editor_div_id);
     editor.getSession().setUseWorker(false);
     editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/json");
+    editor.getSession().setMode(default_mode);
+    editor.resize();
+    editor.renderer.updateFull();
 
     // editor.setValue(JSON.stringify(jsonDoc, null, '\t'));
-    $('#mode').on('change', function (ev) {
+    $('#'+mode_id).on('change', function (ev) {
       var mode = $('#mode option:selected').attr('value');
       console.log(mode)
       editor.getSession().setMode(mode);
     });
+    return editor
   }
 
 

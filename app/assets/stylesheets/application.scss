@@ -47,6 +47,12 @@ code {
 //ACE
 #editor {
   position: relative;
-  height:400px;
+  height: 400px;
   width: 400px
 }
+
+textarea {
+  white-space: pre;
+  font-size: 12px
+}
+
