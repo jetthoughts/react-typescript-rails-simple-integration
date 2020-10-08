@@ -93,6 +93,8 @@ $(document).ready(function () {
 
     $("#sec").val($("#sec2").text())
     $("#temp").val($("#temp2").text())
+    // $("#lay").val('default').click()
+    $("#lay").val('default').click()
   });
 
   // $("#run").click(() => {

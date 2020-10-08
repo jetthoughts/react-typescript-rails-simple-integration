@@ -7,10 +7,6 @@ module WikiGrapher
   # before_action :set_result, only: [:wiki]
   def index
     puts "load WikiGrapher.index"
-    # @sample = nil
-    # @result = {kod: 'sar'}
-    # @result = "{kod: 'sar'}"
-    # @result = nil
     load_sample_presets
   end
 
@@ -29,7 +25,7 @@ module WikiGrapher
     # @result['input'] = JSON.pretty_generate(wikiinput)
     # @result['input'] = JSON.pretty_generate(wikiinput.to_json).to_s
     @result['input'] = wikiinput
-    @result['output'] = wiki_html_print(wikiinput)
+    @result['output'] = process_data(wikiinput)
 
     puts "res: #{@result}"
     # @result
@@ -87,6 +83,8 @@ module WikiGrapher
     template = read_yml 'template', './spec/helpers'
     @sample['sections'] = sections
     @sample['template'] = template
+
+    @options = LAYOUT_PRESETS
   end
 
   def wiki_params

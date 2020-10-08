@@ -29,7 +29,7 @@ describe "wiki_print" do
         'depth' => depth,
         'layout' => 'default',
     }
-    wiki_html_print wikiinput
+    process wikiinput
   end
 
   THIS_DIR = File.dirname(__FILE__)

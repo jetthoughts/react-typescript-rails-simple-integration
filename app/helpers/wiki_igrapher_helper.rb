@@ -1,27 +1,256 @@
 require 'yaml'
 
+module IScript
+  def input_schema
+    raise NoMethodError
+  end
+
+  def process_data
+    raise NoMethodError
+  end
+end
+
 module WikiIgrapherHelper
+  include IScript
   # settings -------
   # todo: make optional?
   DEFAULT_W = 550
   DEFAULT_H = 300
-  DEFAULT_LAYOUT = 'default'
+  DEFAULT_LAYOUT = 'default'.freeze
 
 # code --------
   LAYOUT_PRESETS = {
       'default' => ['60D1D', '4D1H', '5H5m'],
       'old_default' => ['30D1D', '7D1H', '8H5m'],
-      'long' => ['60D1D', '30D1D', '7D1H', '4D1H', '5H5m', '3H5m'],
-  }
+      'long' => ['60D1D', '30D1D', '7D1H', '4D1H', '5H5m', '3H1m'],
+      'long2' => ['60D1D', '7D1H', '4D1H', '5H5m', '3H1m'],
+  }.freeze
 
 # HTML_BREAK = "<br>"
-  HTML_BREAK = "\n"
-  SECTIONS = 'sections'
-  TEMPLATES = 'template'
-  DEPTH = 'depth'
-  LAYOUT = 'layout'
+  HTML_BREAK = "\n".freeze
+  SECTIONS = 'sections'.freeze
+  TEMPLATES = 'template'.freeze
+  DEPTH = 'depth'.freeze
+  LAYOUT = 'layout'.freeze
 
-  def wiki_html_print(wikiinput)
+  #@param Hash JSON InputSchema
+  def input_schema
+    # {
+    #     "title": "Person",
+    #     "type": "object",
+    #     "required": [
+    #         "name",
+    #         "age",
+    #         "date",
+    #         "favorite_color",
+    #         "gender",
+    #         "location",
+    #         "pets"
+    #     ],
+    #     "properties": {
+    #         "name": {
+    #             "type": "string",
+    #             "description": "First and Last name",
+    #             "minLength": 4,
+    #             "default": "Jeremy Dorn"
+    #         },
+    #         "age": {
+    #             "type": "integer",
+    #             "default": 25,
+    #             "minimum": 18,
+    #             "maximum": 99
+    #         },
+    #         "favorite_color": {
+    #             "type": "string",
+    #             "format": "color",
+    #             "title": "favorite color",
+    #             "default": "#ffa500"
+    #         },
+    #         "gender": {
+    #             "type": "string",
+    #             "enum": [
+    #                 "male",
+    #                 "female",
+    #                 "other"
+    #             ]
+    #         },
+    #         "date": {
+    #             "type": "string",
+    #             "format": "date",
+    #             "options": {
+    #                 "flatpickr": {}
+    #             }
+    #         },
+    #         "location": {
+    #             "type": "object",
+    #             "title": "Location",
+    #             "properties": {
+    #                 "city": {
+    #                     "type": "string",
+    #                     "default": "San Francisco"
+    #                 },
+    #                 "state": {
+    #                     "type": "string",
+    #                     "default": "CA"
+    #                 },
+    #                 "citystate": {
+    #                     "type": "string",
+    #                     "description": "This is generated automatically from the previous two fields",
+    #                     "template": "{{city}}, {{state}}",
+    #                     "watch": {
+    #                         "city": "location.city",
+    #                         "state": "location.state"
+    #                     }
+    #                 }
+    #             }
+    #         },
+    #         "pets": {
+    #             "type": "array",
+    #             "format": "table",
+    #             "title": "Pets",
+    #             "uniqueItems": true,
+    #             "items": {
+    #                 "type": "object",
+    #                 "title": "Pet",
+    #                 "properties": {
+    #                     "type": {
+    #                         "type": "string",
+    #                         "enum": [
+    #                             "cat",
+    #                             "dog",
+    #                             "bird",
+    #                             "reptile",
+    #                             "other"
+    #                         ],
+    #                         "default": "dog"
+    #                     },
+    #                     "name": {
+    #                         "type": "string"
+    #                     }
+    #                 }
+    #             },
+    #             "default": [
+    #                 {
+    #                     "type": "dog",
+    #                     "name": "Walter"
+    #                 }
+    #             ]
+    #         }
+    #     }
+    # }
+    # {
+    #     "title": "Person",
+    #     "type": "object",
+    #     "required": [
+    #         "name",
+    #         "age",
+    #         "date",
+    #         "favorite_color",
+    #         "gender",
+    #         "location",
+    #         "pets"
+    #     ],
+    #     "properties": {
+    #         "name": {
+    #             "type": "string",
+    #             "description": "First and Last name",
+    #             "minLength": 4,
+    #             "default": "Jeremy Dorn"
+    #         },
+    #         "age": {
+    #             "type": "integer",
+    #             "default": 25,
+    #             "minimum": 18,
+    #             "maximum": 99
+    #         },
+    #         "favorite_color": {
+    #             "type": "string",
+    #             "format": "color",
+    #             "title": "favorite color",
+    #             "default": "#ffa500"
+    #         },
+    #         "gender": {
+    #             "type": "string",
+    #             "enum": [
+    #                 "male",
+    #                 "female",
+    #                 "other"
+    #             ]
+    #         },
+    #         "date": {
+    #             "type": "string",
+    #             "format": "date",
+    #             "options": {
+    #                 "flatpickr": {}
+    #             }
+    #         },
+    #         "location": {
+    #             "type": "object",
+    #             "title": "Location",
+    #             "properties": {
+    #                 "city": {
+    #                     "type": "string",
+    #                     "default": "San Francisco"
+    #                 },
+    #                 "state": {
+    #                     "type": "string",
+    #                     "default": "CA"
+    #                 },
+    #                 "citystate": {
+    #                     "type": "string",
+    #                     "description": "This is generated automatically from the previous two fields",
+    #                     "template": "{{city}}, {{state}}",
+    #                     "watch": {
+    #                         "city": "location.city",
+    #                         "state": "location.state"
+    #                     }
+    #                 }
+    #             }
+    #         },
+    #         "pets": {
+    #             "type": "array",
+    #             "format": "table",
+    #             "title": "Pets",
+    #             "uniqueItems": true,
+    #             "items": {
+    #                 "type": "object",
+    #                 "title": "Pet",
+    #                 "properties": {
+    #                     "type": {
+    #                         "type": "string",
+    #                         "enum": [
+    #                             "cat",
+    #                             "dog",
+    #                             "bird",
+    #                             "reptile",
+    #                             "other"
+    #                         ],
+    #                         "default": "dog"
+    #                     },
+    #                     "name": {
+    #                         "type": "string"
+    #                     }
+    #                 }
+    #             },
+    #             "default": [
+    #                 {
+    #                     "type": "dog",
+    #                     "name": "Walter"
+    #                 }
+    #             ]
+    #         }
+    #     }
+    # }
+    {
+        SECTIONS: SECTIONS,
+        TEMPLATES: TEMPLATES,
+        DEPTH: DEPTH,
+        LAYOUT: LAYOUT,
+    }
+  end
+
+  #@param Hash InputSchema
+  def process_data(wikiinput)
     @wiki = []
     sections = wikiinput[SECTIONS]
     template = check_absent(wikiinput[TEMPLATES])
@@ -36,7 +265,7 @@ module WikiIgrapherHelper
 
     @wiki << spacer(3)
 
-    make_wiki YAML.load(sections), depth, (template ? YAML.load(template): nil)
+    make_wiki YAML.load(sections), depth, (template ? YAML.load(template) : nil)
 
     @wiki.join "\n"
   end
@@ -50,15 +279,16 @@ module WikiIgrapherHelper
   TIME_UNIT_MAP = {
       'D' => 'Day',
       'H' => 'Hour',
-  }
+  }.freeze
 
   PERIOD_MAP = {
       '1W' => 'OneWeek',
       '1D' => 'OneDay',
       '1H' => 'OneHour',
       '5m' => 'FiveMinute',
+      '1m' => 'OneMinute',
       '1s' => 'OneSecond', #? cloud watch does it, test..
-  }
+  }.freeze
 
 # &StartTime1=-P7D&
 # &StartTime1=-PT8H&
