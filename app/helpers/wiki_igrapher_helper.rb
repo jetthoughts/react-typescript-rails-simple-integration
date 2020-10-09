@@ -18,15 +18,15 @@ module WikiIgrapherHelper
   DEFAULT_H = 300
   DEFAULT_LAYOUT = 'default'.freeze
 
-# code --------
+  # code --------
   LAYOUT_PRESETS = {
       'default' => ['60D1D', '4D1H', '5H5m'],
       'old_default' => ['30D1D', '7D1H', '8H5m'],
       'long' => ['60D1D', '30D1D', '7D1H', '4D1H', '5H5m', '3H1m'],
-      'long2' => ['60D1D', '7D1H', '4D1H', '5H5m', '3H1m'],
+      # 'long2' => ['60D1D', '7D1H', '4D1H', '5H5m', '3H1m'],
   }.freeze
 
-# HTML_BREAK = "<br>"
+  # HTML_BREAK = "<br>"
   HTML_BREAK = "\n".freeze
   SECTIONS = 'sections'.freeze
   TEMPLATES = 'template'.freeze
@@ -138,115 +138,46 @@ module WikiIgrapherHelper
     #         }
     #     }
     # }
-    # {
-    #     "title": "Person",
-    #     "type": "object",
-    #     "required": [
-    #         "name",
-    #         "age",
-    #         "date",
-    #         "favorite_color",
-    #         "gender",
-    #         "location",
-    #         "pets"
-    #     ],
-    #     "properties": {
-    #         "name": {
-    #             "type": "string",
-    #             "description": "First and Last name",
-    #             "minLength": 4,
-    #             "default": "Jeremy Dorn"
-    #         },
-    #         "age": {
-    #             "type": "integer",
-    #             "default": 25,
-    #             "minimum": 18,
-    #             "maximum": 99
-    #         },
-    #         "favorite_color": {
-    #             "type": "string",
-    #             "format": "color",
-    #             "title": "favorite color",
-    #             "default": "#ffa500"
-    #         },
-    #         "gender": {
-    #             "type": "string",
-    #             "enum": [
-    #                 "male",
-    #                 "female",
-    #                 "other"
-    #             ]
-    #         },
-    #         "date": {
-    #             "type": "string",
-    #             "format": "date",
-    #             "options": {
-    #                 "flatpickr": {}
-    #             }
-    #         },
-    #         "location": {
-    #             "type": "object",
-    #             "title": "Location",
-    #             "properties": {
-    #                 "city": {
-    #                     "type": "string",
-    #                     "default": "San Francisco"
-    #                 },
-    #                 "state": {
-    #                     "type": "string",
-    #                     "default": "CA"
-    #                 },
-    #                 "citystate": {
-    #                     "type": "string",
-    #                     "description": "This is generated automatically from the previous two fields",
-    #                     "template": "{{city}}, {{state}}",
-    #                     "watch": {
-    #                         "city": "location.city",
-    #                         "state": "location.state"
-    #                     }
-    #                 }
-    #             }
-    #         },
-    #         "pets": {
-    #             "type": "array",
-    #             "format": "table",
-    #             "title": "Pets",
-    #             "uniqueItems": true,
-    #             "items": {
-    #                 "type": "object",
-    #                 "title": "Pet",
-    #                 "properties": {
-    #                     "type": {
-    #                         "type": "string",
-    #                         "enum": [
-    #                             "cat",
-    #                             "dog",
-    #                             "bird",
-    #                             "reptile",
-    #                             "other"
-    #                         ],
-    #                         "default": "dog"
-    #                     },
-    #                     "name": {
-    #                         "type": "string"
-    #                     }
-    #                 }
-    #             },
-    #             "default": [
-    #                 {
-    #                     "type": "dog",
-    #                     "name": "Walter"
-    #                 }
-    #             ]
-    #         }
-    #     }
-    # }
     {
-        SECTIONS: SECTIONS,
-        TEMPLATES: TEMPLATES,
-        DEPTH: DEPTH,
-        LAYOUT: LAYOUT,
-    }
+        "title": "WikiIGrapher",
+        "type": "object",
+        "required": [
+            SECTIONS,
+            # TEMPLATES,
+            DEPTH,
+            LAYOUT,
+        ],
+        "properties": {
+            SECTIONS => {
+                "type": "string",
+            },
+            TEMPLATES => {
+                "type": "string",
+            },
+            DEPTH => {
+                "type": "integer",
+                "default": 1,
+                "minimum": 0,
+            },
+            LAYOUT => {
+                "type": "string",
+                "enum": LAYOUT_PRESETS.keys
+            },
+            "default": [
+                {
+                    # DEPTH: 1,
+                    LAYOUT: 'default'
+                }
+            ]
+        }
+    }.to_json
+
+      # {
+      #     SECTIONS: SECTIONS,
+      #     TEMPLATES: TEMPLATES,
+      #     DEPTH: DEPTH,
+      #     LAYOUT: LAYOUT,
+      # }
   end
 
   #@param Hash InputSchema
@@ -271,8 +202,9 @@ module WikiIgrapherHelper
   end
 
   protected
-  def check_absent item
+  def check_absent(item)
     return nil if item.nil? || item.strip.empty?
+
     item
   end
 
@@ -290,23 +222,23 @@ module WikiIgrapherHelper
       '1s' => 'OneSecond', #? cloud watch does it, test..
   }.freeze
 
-# &StartTime1=-P7D&
-# &StartTime1=-PT8H&
+  # &StartTime1=-P7D&
+  # &StartTime1=-PT8H&
   def make_time(time, unit)
     time_unit = TIME_UNIT_MAP[unit]
     time_prefix = time_unit =~ /H/ ? 'PT' : 'P'
     "#{time_prefix}#{time}#{unit}"
   end
 
-# &Period1=OneDay&
-# &Period1=OneHour&
-# &Period1=FiveMinute&
+  # &Period1=OneDay&
+  # &Period1=OneHour&
+  # &Period1=FiveMinute&
   def make_period(period)
     PERIOD_MAP[period]
   end
 
-# ['60D1D', '4D1H', '5H5m']
-# |=60 Day [1 day]|=4 Day [1 hr]|=5 Hour [5 min]
+  # ['60D1D', '4D1H', '5H5m']
+  # |=60 Day [1 day]|=4 Day [1 hr]|=5 Hour [5 min]
   def make_title(time, unit, period)
     time_unit = TIME_UNIT_MAP[unit]
     "#{time} #{time_unit} [#{make_period(period)}]"
@@ -323,7 +255,7 @@ module WikiIgrapherHelper
         .gsub(/&Period1=(\w+)&/, "&Period1=#{period}&") #period
   end
 
-#|width=550|height=300
+  #|width=550|height=300
   def fix_sizes str, w = 550, h = 300
     str.gsub(/\|width=(\d+)\|height=(\d+)/, "|width=#{w}|height=#{h}")
   end
@@ -352,9 +284,10 @@ module WikiIgrapherHelper
     @wiki << graph_cols.join(graph_sep)
   end
 
-# will fail if value does not contain {{igraph ... }}
+  # will fail if value does not contain {{igraph ... }}
   def quick_validate_and_clean(graph)
     return graph if graph.nil?
+
     # graph.match(/(\{\{igraph.*\}\})/)[0]
     match = graph.match(/^(\{\{igraph.*\}\})$/)
     match

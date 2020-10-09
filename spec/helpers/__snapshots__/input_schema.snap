@@ -1,0 +1,1 @@
+{"title":"WikiIGrapher","type":"object","required":["sections","depth","layout"],"properties":{"sections":{"type":"string"},"template":{"type":"string"},"depth":{"type":"integer","default":1,"minimum":0},"layout":{"type":"string","enum":["default","old_default","long"]},"default":[{"LAYOUT":"default"}]}}

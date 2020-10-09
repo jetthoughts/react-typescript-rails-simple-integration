@@ -33,12 +33,19 @@ describe "wiki_print" do
   end
 
   THIS_DIR = File.dirname(__FILE__)
+  context "settings" do
+    it 'should print schema' do
+      res = input_schema
+      expect(res).to match_snapshot 'input_schema'
+    end
+  end
+
   context "use" do
     it 'preset_slapshot_indiv' do
       sections = prepare_yml 'sections', THIS_DIR
       template = prepare_yml 'template', THIS_DIR
       res = get_wiki_sections sections, 3, template
-      expect(res).to match_snapshot 'preset_slapshot_indiv'
+      expect(res.to_yaml).to match_snapshot 'preset_slapshot_indiv'
     end
 
     it 'preset_eeylops_slapshot_combined' do
