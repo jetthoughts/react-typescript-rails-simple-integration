@@ -167,7 +167,9 @@ $(document).ready(function () {
   // ---------
 // Ace
 //   editor1 = loadAce('editor1', 'mode1', 'ace/mode/text');
-  editor1 = loadAce('editor', 'mode', 'ace/mode/xquery');
+  if ($("#editor").length > 0) {
+    editor1 = loadAce('editor', 'mode', 'ace/mode/xquery');
+  }
 
   // https://jsfiddle.net/xlaptop2001/y70gL3kv/ // todo: ace file loader and saver
   // default_editor = loadAce('editor', 'mode', 'ace/mode/javascript');

@@ -1,6 +1,10 @@
 {
   "name": "myapp",
   "private": true,
+  "scripts": {
+    "start": "bin/webpack-dev-server",
+    "start:dev": "bin/webpack-dev-server --mode development --hot"
+  },
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
     "@rails/webpacker": "^4.0.2",

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/wiki' => 'textedit#wiki'
   # get '/' => 'textedit#wiki'
 
+  get '/script' => 'script#index'
+  # get '/script' => 'textedit#wiki'
   # get '/textedit/json_convert' => 'textedit#index'
   # post '/textedit/json_convert' => 'textedit#json'
 
