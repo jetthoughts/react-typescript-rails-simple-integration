@@ -1,9 +1,11 @@
 require 'amazing_print'
 
-require_relative '../../../../app/helpers/wiki_igrapher_helper'
+# require_relative '../../../../app/helpers/wiki_igrapher_helper'
+require_relative '../../../../app/helpers/scripts/i_script'
+require_relative '../../../../app/helpers/scripts/wiki_igrapher/wiki_igrapher'
 
 module WikiGrapher
-  include WikiIgrapherHelper
+  include Scripts::WikiIgrapher
   # before_action :set_result, only: [:wiki]
   def index
     puts "load WikiGrapher.index"

@@ -10,17 +10,18 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe WikiIgrapherHelper, type: :helper do
+RSpec.describe "WikiIgrapherHelper", type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 
 # require 'yaml'
 
 describe "wiki_print" do
-  include WikiIgrapherHelper
-  after() do
-
-  end
+  # include WikiIgrapherHelper
+  include Scripts::WikiIgrapher
+  # after() do
+  #
+  # end
 
   def get_wiki_sections(sections, depth, template = nil)
     wikiinput = {
@@ -29,7 +30,7 @@ describe "wiki_print" do
         'depth' => depth,
         'layout' => 'default',
     }
-    process wikiinput
+    process_data wikiinput
   end
 
   THIS_DIR = File.dirname(__FILE__)
@@ -66,7 +67,7 @@ describe "wiki_print" do
     it 'should add comments' do
       @wiki = []
       res = make_comment 'yml_str', 'title'
-      expect(res).to match_array(["{{comment}}", "\nTitle\n", "=====", "yml_str", "{{/comment}}", "#{WikiIgrapherHelper::HTML_BREAK*2}"])
+      expect(res).to match_array(["{{comment}}", "\nTitle\n", "=====", "yml_str", "{{/comment}}", "#{Scripts::WikiIgrapher::HTML_BREAK*2}"])
     end
   end
 end
