@@ -1,9 +1,9 @@
 require 'amazing_print'
-require '../helpers/script_crawler'
+require_relative '../helpers/script_crawler'
 
 class ScriptController < ApplicationController
   include ScriptCrawler
-  SCRIPTS = generate_script_procs
+  # SCRIPTS = generate_script_procs
 
   def index
   end

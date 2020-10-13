@@ -1,5 +1,5 @@
 require 'amazing_print'
-require_all './scripts'
+# require_all './scripts/**/*.rb'
 
 module ScriptCrawler
   THIS_DIR = File.dirname(__FILE__)
