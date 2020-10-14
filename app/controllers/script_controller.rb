@@ -20,7 +20,7 @@ class ScriptController < ApplicationController
 
     input = {}
     input['input_schema'] = script.input_schema
-    input['examples'] = []
+    input['examples'] = script.input_examples
 
     # ap "input_fetch: #{ap input}"
     # ap "input_fetch: #{input}"

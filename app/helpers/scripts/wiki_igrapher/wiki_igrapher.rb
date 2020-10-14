@@ -129,6 +129,7 @@ module Scripts
       #         }
       #     }
       # }
+
       {
           "title": "WikiIGrapher",
           "type": "object",
@@ -171,6 +172,19 @@ module Scripts
       # }
     end
 
+    THIS_DIR = File.dirname(__FILE__)
+    def input_examples
+      res = []
+      # example_files = Dir["#{THIS_DIR}/data/*"].collect { |f| {f: YAML.safe_load(f)} }
+      example_files = Dir["#{THIS_DIR}/data/*"]
+      example_files.each do |f|
+        file_name = File.basename(f, ".*")
+        res << {file_name => YAML.load_file(f)}
+      end
+      ap res
+      res
+    end
+
     #@param Hash InputSchema
     def run_script(input_params)
       @wiki = []
@@ -193,7 +207,7 @@ module Scripts
     end
 
     def pretty_yml yml
-      yml.gsub(/\\r\\n/,"\n")
+      yml.gsub(/\\r\\n/, "\n")
     end
 
     protected
@@ -357,6 +371,7 @@ module Scripts
 
   class WikiIgrapherScript < IScript
     include WikiIgrapher
+
     def initialize
       ap "init WikiIgrapherScript"
     end
