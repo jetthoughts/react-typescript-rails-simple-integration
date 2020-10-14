@@ -7,7 +7,8 @@ describe 'ScriptCrawler' do
   # THIS_DIR = File.dirname(__FILE__)
   context 'settings' do
     it 'should print schema' do
-      ap generate_script_procs
+      files = generate_script_procs_map
+      ap files
     end
   end
 

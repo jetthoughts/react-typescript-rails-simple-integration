@@ -24,13 +24,13 @@ describe "wiki_print" do
   # end
 
   def get_wiki_sections(sections, depth, template = nil)
-    wikiinput = {
+    input_params = {
         'sections' => sections,
         'template' => template,
         'depth' => depth,
         'layout' => 'default',
     }
-    process_data wikiinput
+    run_script input_params
   end
 
   THIS_DIR = File.dirname(__FILE__)

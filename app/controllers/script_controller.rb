@@ -1,9 +1,9 @@
 require 'amazing_print'
-require_relative '../helpers/script_crawler'
+require_relative '../helpers/scripts/script_crawler'
 
 class ScriptController < ApplicationController
   include ScriptCrawler
-  # SCRIPTS = generate_script_procs
+  # SCRIPTS = generate_script_procs_map
 
   def index
   end
@@ -33,7 +33,7 @@ class ScriptController < ApplicationController
 
     output = {}
     output['input'] = request_input
-    output['output'] = script.process_data(params)
+    output['output'] = script.run(params)
 
     ap "output_fetch: #{output}"
 

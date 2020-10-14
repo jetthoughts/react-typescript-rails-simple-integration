@@ -27,7 +27,7 @@ module WikiGrapher
     # @result['input'] = JSON.pretty_generate(wikiinput)
     # @result['input'] = JSON.pretty_generate(wikiinput.to_json).to_s
     @result['input'] = wikiinput
-    @result['output'] = process_data(wikiinput)
+    @result['output'] = run_script(wikiinput)
 
     puts "res: #{@result}"
     # @result

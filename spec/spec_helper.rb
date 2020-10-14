@@ -5,7 +5,7 @@ require 'require_all'
 require_all Dir.glob('app/controllers/concerns/**/*.rb')
 require_all Dir.glob('app/util/**/*.rb')
 # require_all Dir.glob('app/helpers/**/*.rb')
-# require_all Dir.glob('app/helpers/scripts/**/*.rb')
+require_all Dir.glob('app/helpers/scripts/**/*.rb')
 # require_all Dir.glob('app/helpers/*.rb')
 
 require 'rspec/snapshot'

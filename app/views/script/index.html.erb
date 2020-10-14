@@ -5,6 +5,10 @@
   <div class="mt-5" id="app" data-react-props='{"message": "kodsar"}'></div>
 </main>
 
+<%= react_component('welcome-button', message: 'Hello from rails view!') %>
+<%#= react_component('app', message: 'Hello from rails view!') %>
+<%= javascript_pack_tag 'hello_react' %>
+
 <%#= javascript_pack_tag 'hello_typescript' %>
 <%#= javascript_pack_tag 'hello_react' %>
 <%= javascript_pack_tag 'src/App' %>

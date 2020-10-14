@@ -1,25 +1,21 @@
-describe "wiki_print" do
-  # include WikiIgrapherHelper
+describe "WikiIgrapher" do
   include Scripts::WikiIgrapher
-  # after() do
-  #
-  # end
 
-  def get_wiki_sections(sections, depth, template = nil)
-    wikiinput = {
+  def compute(sections, depth, template = nil)
+    input = {
         'sections' => sections,
         'template' => template,
         'depth' => depth,
         'layout' => 'default',
     }
-    process_data wikiinput
+    run_script input
   end
 
   THIS_DIR = File.dirname(__FILE__)
   context "settings" do
     it 'should print schema' do
       res = input_schema
-      expect(res).to match_snapshot 'input_schema'
+      expect(res.to_yaml).to match_snapshot 'input_schema'
     end
   end
 end

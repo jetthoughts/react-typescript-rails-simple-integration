@@ -1,12 +1,6 @@
 require 'yaml'
 
 module Scripts
-  class WikiIgrapherScript < IScript
-    def initialize
-      ap "init WikiIgrapherScript"
-    end
-  end
-
   module WikiIgrapher
     # include IScript
     # settings -------
@@ -178,28 +172,32 @@ module Scripts
     end
 
     #@param Hash InputSchema
-    def process_data(wikiinput)
+    def run_script(input_params)
       @wiki = []
-      sections = wikiinput[SECTIONS]
-      template = check_absent(wikiinput[TEMPLATES])
-      depth = wikiinput[DEPTH].to_i
-      @layout = wikiinput[LAYOUT] # todo: non stateful?
+      sections = input_params[SECTIONS]
+      template = optional_handle(input_params[TEMPLATES])
+      depth = input_params[DEPTH].to_i
+      @layout = input_params[LAYOUT] # todo: non stateful?
 
-      make_comment sections, SECTIONS
-      if template.nil?
-        make_comment template, TEMPLATES
-      end
-      make_comment depth, DEPTH
-
-      @wiki << spacer(3)
-
+      # make_comment sections, SECTIONS
+      # if template.nil?
+      #   make_comment template, TEMPLATES
+      # end
+      # make_comment depth, DEPTH
+      # make_comment input_params.to_yaml, 'input_params'
+      make_comment pretty_yml(input_params.to_yaml), 'input_params'
+      # make_comment input_params, 'input_params'
+      # @wiki << spacer(3)
       make_wiki YAML.load(sections), depth, (template ? YAML.load(template) : nil)
+      @wiki.join HTML_BREAK
+    end
 
-      @wiki.join "\n"
+    def pretty_yml yml
+      yml.gsub(/\\r\\n/,"\n")
     end
 
     protected
-    def check_absent(item)
+    def optional_handle(item)
       return nil if item.nil? || item.strip.empty?
 
       item
@@ -354,6 +352,13 @@ module Scripts
       yml_str = File.read("#{dir}/data/#{filename}.yml")
       # print_comment yml_str, filename
       # YAML.load(yml_str)
+    end
+  end
+
+  class WikiIgrapherScript < IScript
+    include WikiIgrapher
+    def initialize
+      ap "init WikiIgrapherScript"
     end
   end
 end
