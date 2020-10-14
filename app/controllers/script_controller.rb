@@ -1,13 +1,14 @@
 require 'amazing_print'
 require_relative '../helpers/scripts/script_crawler'
 
-# SCRIPTS_MAP = generate_script_procs_map
-
 class ScriptController < ApplicationController
   include ScriptCrawler
-  # ap SCRIPTS
 
   def index
+    respond_to do |format|
+      format.html { render 'script/index', layout: false } #todo: note, layout
+      format.json { render json: {scripts: SCRIPTS_MAP.keys}.to_json }
+    end
   end
 
   def input_fetch
@@ -16,17 +17,10 @@ class ScriptController < ApplicationController
     ap request_input
 
     script = find_script(request_input['script'])
-    # params = find_script(request_input['params'])
 
     input = {}
     input['input_schema'] = script.input_schema
     input['examples'] = script.input_examples
-
-    # ap "input_fetch: #{ap input}"
-    # ap "input_fetch: #{input}"
-    #
-    # ap "input_fetch:"
-    # ap input
 
     respond_to do |format|
       format.json { render json: input.to_json }
@@ -37,12 +31,12 @@ class ScriptController < ApplicationController
     request_input = request_params
     ap request_input
 
-    # script = find_script(request_input['script'])
-    # params = find_script(request_input['params'])
+    script = find_script(request_input['script'])
+    params = JSON.parse(request_input['input_params']) #todo: unsafe? errors?
 
     output = {}
     output['input'] = request_input
-    output['output'] = script.run(params)
+    output['output'] = script.run_script(params) #todo: print errors?
 
     ap "output_fetch: #{output}"
 
@@ -53,7 +47,7 @@ class ScriptController < ApplicationController
 
   private
   def find_script(script_key)
-    SCRIPTS_MAP[script_key] || raise(ArgumentError,"unknown script: `#{script_key}`")
+    SCRIPTS_MAP[script_key] || raise(ArgumentError, "unknown QuickScript: `#{script_key.inspect}`")
   end
 
   def read_yml(filename, dir)
@@ -65,6 +59,6 @@ class ScriptController < ApplicationController
   end
 
   def request_params
-    params.require(:input).permit(:script, :params, :id)
+    params.require(:input).permit(:input_params, :script, :id)
   end
 end
