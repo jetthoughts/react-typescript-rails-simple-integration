@@ -12,12 +12,14 @@ class ScriptController < ApplicationController
     request_input = request_params
     ap request_input
 
-
     input = {}
     input['input_schema'] = request_input
-    input['examples'] =
+    input['examples'] = []
 
-    ap "input_fetch: #{input}"
+    # ap "input_fetch: #{ap input}"
+    # ap "input_fetch: #{input}"
+    ap "input_fetch:"
+    ap input
 
     respond_to do |format|
       format.json { render json: input.to_json }
@@ -28,8 +30,8 @@ class ScriptController < ApplicationController
     request_input = request_params
     ap request_input
 
-    script = find_script(request_input['script'])
-    params = find_script(request_input['params'])
+    # script = find_script(request_input['script'])
+    # params = find_script(request_input['params'])
 
     output = {}
     output['input'] = request_input
