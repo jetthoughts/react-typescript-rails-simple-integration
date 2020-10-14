@@ -7,7 +7,7 @@ require_rel '*/*.rb'
 module ScriptCrawler
   THIS_DIR = File.dirname(__FILE__)
 
-  def generate_script_procs_map
+  def self.generate_script_procs_map
     map2 = {}
     scripts_files = Dir["#{THIS_DIR}/*/*.rb"].reject { |f| f =~ /spec/ }
     scripts_files.each do |f|
@@ -16,8 +16,12 @@ module ScriptCrawler
       ffc = "Scripts::#{ff}Script".constantize
       map2[file_name] = ffc.new
     end
+    # ap map2
     map2
   end
+
+  # SCRIPTS_MAP = generate_script_procs_map
+  SCRIPTS_MAP = ScriptCrawler.generate_script_procs_map # todo: hmmm
 
   def generate_script_class_map
     scripts = Scripts.constants
