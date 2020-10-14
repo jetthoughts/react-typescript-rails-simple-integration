@@ -1,0 +1,22 @@
+{
+  "title": "output_schema",
+  "type": "object",
+  "required": [
+  ],
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "data": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "default": [
+      {
+        "type": "data"
+      }
+    ]
+  }
+}

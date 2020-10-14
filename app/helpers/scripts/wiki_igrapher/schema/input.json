@@ -1,5 +1,5 @@
 {
-  "title": "WikiIGrapher",
+  "title": "input_schema",
   "type": "object",
   "required": [
     "sections",
@@ -20,7 +20,7 @@
     },
     "layout": {
       "type": "string",
-      "enum": "LAYOUT_PRESETS.keys",
+      "enum": "LAYOUT_PRESETS.keys"
     },
     "default": [
       {

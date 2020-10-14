@@ -6,17 +6,19 @@ class ScriptController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html { render 'script/index', layout: false } #todo: note, layout
+      format.html { render 'script/index'}
       format.json { render json: {scripts: SCRIPTS_MAP.keys}.to_json }
     end
   end
 
   def input_fetch
     # request_input = request_input_params
-    request_input = request_params
+    request_input = params[:id]
+    # request_input = request_params
     ap request_input
 
-    script = find_script(request_input['script'])
+    # script = find_script(request_input['script'])
+    script = find_script(request_input)
 
     input = {}
     input['input_schema'] = script.input_schema
@@ -59,6 +61,7 @@ class ScriptController < ApplicationController
   end
 
   def request_params
-    params.require(:input).permit(:input_params, :script, :id)
+    # params.require(:input).permit(:input_params, :script, :id)
+    params.require(:input).permit(:input_params, :script)
   end
 end
