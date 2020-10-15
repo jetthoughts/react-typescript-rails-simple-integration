@@ -1,0 +1,135 @@
+
+.bigblue {
+    color: DodgerBlue;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#dropdownMenuButton {
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    white-space: pre;
+    color: #BA2121;
+}
+
+#numericInput {
+
+}
+
+.code {
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    white-space: pre;
+    color: #BA2121;
+}
+
+.codeWhite {
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    white-space: pre;
+    color: white;
+}
+
+.dropdown-item {
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    white-space: pre;
+}
+
+.activeLink {
+    background: grey;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.leftpane {
+    width: 25%;
+    height: 100%;
+    float: left;
+    background-color: rosybrown;
+    border-collapse: collapse;
+}
+
+.middlepane {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    /*float: left;*/
+    background-color: royalblue;
+    border-collapse: collapse;
+}
+
+.rightpane {
+    width: 25%;
+    height: 100%;
+    position: relative;
+    float: right;
+    background-color: yellow;
+    border-collapse: collapse;
+}
+
+.testNavItem {
+    height: 100%;
+    position:fixed;
+    transition: 0.5s;
+}
+
+#processButton {
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    white-space: pre;
+    background-color: darkgreen;
+}
+
+.main {
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 20px;
+}
+
+
+
+
+#sidebar-wrapper {
+    z-index: 1000;
+    left: 235px;
+    height: 100%;
+    /*margin-left: -235px;*/
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #252D3A;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 235px;}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -235px;}
+
+#page-content-wrapper {
+    width: 100%;
+    padding-top: 20px;}
+
+.container {
+    display: block;
+    /*flex: 1 0 100%;*/
+    align-items: stretch;
+}
+
+.sidenav {
+    float:left;
+    margin-right: 40px;
+}
+
+.content {
+    width: 100%;
+}

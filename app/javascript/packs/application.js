@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AppManager from "./src/containers/AppManager";
 
 export function mount(Component, mountNodeId) {
   document.addEventListener('DOMContentLoaded', () => {
@@ -7,6 +8,6 @@ export function mount(Component, mountNodeId) {
     const propsJSON = mountNode.getAttribute('data-react-props');
     const props = JSON.parse(propsJSON);
 
-    ReactDOM.render(<Component {...props} />, mountNode);
+    ReactDOM.render(<AppManager/>, document.getElementById(root));
   })
 }
