@@ -24,8 +24,10 @@ export default class InputCardDeck extends Component {
             formData:{},
             key: Date.now(),
             loadFormData:{
-                title: 'Load title',
-                done: true
+                sections: 'Load sections',
+                depth: 2,
+                layout: 'Load layout'
+
             },
             testSchema: {
                 title: "Form Gen",
@@ -37,7 +39,7 @@ export default class InputCardDeck extends Component {
                 }
             },
             uiSchema : {
-                title: {
+                templates: {
                     "ui:widget": (props) => {
                         return (
                             <AceEditor
@@ -60,7 +62,7 @@ export default class InputCardDeck extends Component {
             }
         }
         this.sendInput = this.sendInput.bind(this)
-        this.trackChange = this.trackChange.bind(this)
+        this.updateData= this.updateData.bind(this)
         this.resetInput = this.resetInput.bind(this)
         this.loadInput = this.loadInput.bind(this)
     }
@@ -70,8 +72,8 @@ export default class InputCardDeck extends Component {
         this.getScriptById(this.props.match.params.scriptId);
     }
 
-    selectScript(scriptId) {
-        this.setState({scriptId: scriptId});
+    selectScript(inputScriptId) {
+        this.setState({scriptId:inputScriptId})
     }
 
     componentWillReceiveProps(newProps) {
@@ -91,24 +93,14 @@ export default class InputCardDeck extends Component {
         })
     }
 
-    trackChange(event){
-        // console.log("SchemaToForm Props: ", this.props.schema)
-        this.setState({
-            formData:event.formData
-        })
-        console.log("SchemaToForm: ", this.state.formData)
-        // console.log("SchemaToForm: ", this.props.key)
-        // this.AppService.sendInput(this.props.key, event.formData)
-    }
-
     sendInput(key) {
         console.log("Key: ",key)
         console.log("Sent to server: ", this.state.formData)
-        this.AppService.sendInput(key, this.state.formData)
-            .then(output=>{
-                console.log("OUTPUT FROm SERVER: ",output)
-                this.setState({scriptOutput:output})
-            })
+        // this.AppService.sendInput(key, this.state.formData)
+        //     .then(output=>{
+        //         console.log("OUTPUT FROm SERVER: ",output)
+        //         this.setState({scriptOutput:output})
+        //     })
     }
 
     resetInput() {
@@ -127,31 +119,36 @@ export default class InputCardDeck extends Component {
         })
     }
 
+    updateData = (target, value) => {
+        this.setState({ [target]: value });
+    };
+
     renderFormFromScript() {
         return (
+          <div className="card">
+              <div className="card-title">
+                        <span className="float-left">
+                            <Button variant="contained" color="primary" startIcon={<SaveAlt/>}>Save Input</Button> &nbsp;
+                            <Button variant="contained" color="default" startIcon={<Publish/>}>Load Input</Button>&nbsp;
+                            <Button variant="contained" color="primary" startIcon={<FileCopy/>}>Paste Input</Button>&nbsp;
+                        </span>
+                  <span className="float-right">
+                            <Button onClick={this.resetInput}
+                                    variant="contained"
+                                    color="secondary"
+                                    startIcon={<Backspace/>}>Clear</Button>&nbsp;
+                      <Button onClick={this.loadInput} variant="contained" color="primary" startIcon={<Autorenew/>}>Load Examples</Button>&nbsp;
+                      <Button onClick={() => this.sendInput(this.state.script.id)} variant="contained" startIcon={<PlayArrow style={{ color: green[500] }}/>}>Process</Button>&nbsp;
+                  </span>
+              </div>
 
-                <div className="card">
-                    <div className="card-title">
-                    <span className="float-left">
-                        <Button variant="contained" color="primary" startIcon={<SaveAlt/>}>Save Input</Button> &nbsp;
-                        <Button variant="contained" color="default" startIcon={<Publish/>}>Load Input</Button>&nbsp;
-                        <Button variant="contained" color="primary" startIcon={<FileCopy/>}>Paste Input</Button>&nbsp;
-                    </span>
-                        <span className="float-right">
-                        <Button onClick={this.resetInput}
-                                variant="contained"
-                                color="secondary"
-                                startIcon={<Backspace/>}>Clear</Button>&nbsp;
-                            <Button onClick={this.loadInput} variant="contained" color="primary" startIcon={<Autorenew/>}>Load Examples</Button>&nbsp;
-                            <Button onClick={() => this.sendInput(this.state.script.id)} variant="contained" startIcon={<PlayArrow style={{ color: green[500] }}/>}>Process</Button>&nbsp;
-                    </span>
-                    </div>
-                    <hr className="solid"/>
-                    <div className="card-body">
-                        <SchemaToForm schema={this.state.script} uiSchema={this.state.uiSchema} formData={this.state.formData} key={this.state.script.id}/>
-                        {/*<SchemaToForm schema={this.state.script.schema.input} uiSchema={this.state.uiSchema} formData={this.state.formData} key={this.state.script.id}/>*/}
-                    </div>
-                </div>
+              <hr className="solid"/>
+
+              <div className="card-body">
+                            <SchemaToForm schema={this.state.script} uiSchema={this.state.uiSchema} formData={this.state.formData} updateData={this.updateData} key={this.state.script.id}/>
+                            {/*<SchemaToForm schema={this.state.script.schema.input} uiSchema={this.state.uiSchema} formData={this.state.formData} key={this.state.script.id}/>*/}
+              </div>
+          </div>
         )
     }
 
