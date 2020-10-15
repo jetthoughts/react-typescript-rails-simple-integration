@@ -2,16 +2,15 @@
   "title": "output_schema",
   "type": "object",
   "required": [
-    "type"
   ],
   "properties": {
     "type": {
       "type": "string"
     },
-    "code": {
+    "data": {
       "type": "string"
     },
-    "text": {
+    "code": {
       "type": "string"
     },
     "link": {
@@ -24,9 +23,9 @@
       "type": "string"
     },
     "default": [
-    {
-      "type": "code"
-    }
+      {
+        "type": "data"
+      }
     ]
   }
 }

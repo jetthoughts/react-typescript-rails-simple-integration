@@ -21,7 +21,7 @@ class ScriptController < ApplicationController
     script = find_script(request_input)
 
     input = {}
-    input['input_schema'] = script.input_schema
+    input['schema'] = script.get_schema
     input['examples'] = script.input_examples
 
     respond_to do |format|
