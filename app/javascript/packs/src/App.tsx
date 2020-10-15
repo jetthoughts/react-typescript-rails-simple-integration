@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { mount } from '../application';
 import AppManager from './containers/AppManager'
+import '../../../../node_modules/bootstrap/dist/css/bootstrap.css'
+import '../../../../node_modules/font-awesome/css/font-awesome.min.css'
+import 'bootstrap/dist/js/bootstrap.js'
+import './style.css'
+import 'rsuite/dist/styles/rsuite-default.css';
+import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 interface AppProps {
   message: string
@@ -34,9 +40,7 @@ export const App: React.FC<AppProps> = ({message}) => {
     //     </div>
     //   </div>
     // </div>
-    <div>
       <AppManager />
-    </div>
 
   )
 }

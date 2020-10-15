@@ -12,6 +12,7 @@ export default class SideNavPane
             expanded: true,
             activeKey: '',
             scripts:[]
+
         };
         this.handleToggle = this.handleToggle.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
@@ -36,7 +37,7 @@ export default class SideNavPane
 
     scriptItems() {
         // var scriptItems = this.state.scripts.map(script => {
-            // return<NavListItem key={script.id} scriptName={script.title} scriptId={script.id}/>
+        //     return<NavListItem key={script.id} scriptName={script.title} scriptId={script.id}/>
         var scriptItems = this.state.scripts.map((script,i) => {
             return <NavListItem key={i} scriptName={script} scriptId={script}/>
         })
