@@ -8,6 +8,7 @@ export function mount(Component, mountNodeId) {
     const propsJSON = mountNode.getAttribute('data-react-props');
     const props = JSON.parse(propsJSON);
 
-    ReactDOM.render(<AppManager/>, document.getElementById(root));
+    // ReactDOM.render(<AppManager/>, document.getElementById(root));
+    ReactDOM.render(<Component props={props}/>, mountNode);
   })
 }

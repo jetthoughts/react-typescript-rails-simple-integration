@@ -82,7 +82,12 @@ export default class InputCardDeck extends Component {
     getScriptById(scriptId) {
         this.AppService.findScriptById(scriptId).then((script) => {
             console.log("Fetched Script: ", script)
-            this.setState({script: script})
+            const scriptMod = {
+                id: scriptId,
+                title: scriptId,
+                ...script.schema.input
+            }
+            this.setState({script: scriptMod})
         })
     }
 
@@ -144,6 +149,7 @@ export default class InputCardDeck extends Component {
                     <hr className="solid"/>
                     <div className="card-body">
                         <SchemaToForm schema={this.state.script} uiSchema={this.state.uiSchema} formData={this.state.formData} key={this.state.script.id}/>
+                        {/*<SchemaToForm schema={this.state.script.schema.input} uiSchema={this.state.uiSchema} formData={this.state.formData} key={this.state.script.id}/>*/}
                     </div>
                 </div>
         )

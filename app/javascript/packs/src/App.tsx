@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { mount } from '../application';
+import AppManager from './containers/AppManager'
 
 interface AppProps {
   message: string
@@ -19,20 +20,25 @@ export const App: React.FC<AppProps> = ({message}) => {
     // hist.map(h => console.log(h))
   }
   return (
+    // <div>
+    //   <button onClick={() => alert(message)}>
+    //     alert message from props!
+    //   </button>
+    //   <div>
+    //     <input id={"txt"} onChange={assignChange} placeholder={inp}/>
+    //     <p id={"out"}>{inp}</p>
+    //     <p id={"outlist2"}>{hist.join(", ")}</p>
+    //     // hist list
+    //     <div id={"outlist"}>
+    //       {hist.map((h,i) => <p key={i}>{h}</p>)}
+    //     </div>
+    //   </div>
+    // </div>
     <div>
-      <button onClick={() => alert(message)}>
-        alert message from props!
-      </button>
-      <div>
-        <input id={"txt"} onChange={assignChange} placeholder={inp}/>
-        <p id={"out"}>{inp}</p>
-        <p id={"outlist2"}>{hist.join(", ")}</p>
-        // hist list
-        <div id={"outlist"}>
-          {hist.map((h,i) => <p key={i}>{h}</p>)}
-        </div>
-      </div>
-    </div>)
+      <AppManager />
+    </div>
+
+  )
 }
 
 mount(App, 'app');

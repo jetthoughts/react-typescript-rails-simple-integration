@@ -28,15 +28,17 @@ export default class SideNavPane
     }
 
     componentDidMount() {
-        this.AppService.findAllScripts().then(scripts=>{
+        this.AppService.findAllScripts().then(({scripts})=>{
             console.log("SideNavPane: ",scripts)
             this.setState({scripts:scripts})
         })
     }
 
     scriptItems() {
-        var scriptItems = this.state.scripts.map(script => {
-            return<NavListItem key={script.id} scriptName={script.title} scriptId={script.id}/>
+        // var scriptItems = this.state.scripts.map(script => {
+            // return<NavListItem key={script.id} scriptName={script.title} scriptId={script.id}/>
+        var scriptItems = this.state.scripts.map((script,i) => {
+            return <NavListItem key={i} scriptName={script} scriptId={script}/>
         })
         return(scriptItems)
     }
