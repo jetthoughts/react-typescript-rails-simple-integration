@@ -20,6 +20,7 @@ const AppManager = () => {
     <Router>
       <div className="container-fluid">
         <h1 className="code"> Quick Scripts</h1>
+        {/*<DarkModeToggle/>*/}
         <DarkTheme light={lightTheme} dark={darkTheme} />
         <br/>
         <div className="sidenav">

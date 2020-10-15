@@ -28,13 +28,14 @@ module Scripts
       example_files = Dir["#{@this_dir}/examples/*"]
       example_files.each do |f|
         file_name = File.basename(f, ".*")
-        res << { file_name => YAML.load_file(f) }
+        # res << { file_name => YAML.load_file(f) } # todo:
+        res << YAML.load_file(f)
       end
       ap res
       res
     end
 
-    def run_script
+    def run_script(input_params)
       raise NoMethodError, "implement your processor: run_script"
     end
   end

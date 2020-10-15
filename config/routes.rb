@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   # get '/' => 'textedit#wiki'
 
   # get '/script' => 'script#index'
-  get '/script/api/v1/:id' => 'script#input_fetch'
+  # get '/script/api/v1/:id/process' => 'script#output_fetch'
   post '/script/api/v1/:id' => 'script#output_fetch'
+  get '/script/api/v1/:id' => 'script#input_fetch'
   # get '/script' => 'textedit#wiki'
   # get '/textedit/json_convert' => 'textedit#index'
   # post '/textedit/json_convert' => 'textedit#json'

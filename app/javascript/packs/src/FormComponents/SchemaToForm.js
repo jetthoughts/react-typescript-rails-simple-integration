@@ -8,7 +8,7 @@ import AppService from "../services/AppService";
 export default class SchemaToForm extends Component {
     constructor(props) {
         super(props);
-        this.AppService = AppService.instance;
+        // this.AppService = AppService.instance;
     }
 
     render() {

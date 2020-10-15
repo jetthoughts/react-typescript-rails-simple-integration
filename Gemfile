@@ -49,6 +49,7 @@ gem 'reline', '>= 0.1.4'
 gem 'mini_racer' #Autoprefixer doesn’t support Node v13.6.0. Update it.
 gem 'rspec-snapshot'
 gem 'require_all'
+gem 'prettier'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,32 +1,16 @@
 {
-  "title": "WikiIGrapher",
+  "title": "RTE Search to Owlery Preview",
   "type": "object",
   "required": [
-    "sections",
-    "depth",
-    "layout"
+    "rte_link"
   ],
   "properties": {
-    "sections": {
-      "type": "string"
-    },
-    "templates": {
-      "type": "string"
-    },
-    "depth": {
-      "type": "integer",
-      "default": 1,
-      "minimum": 0
-    },
-    "layout": {
+    "rte_link": {
       "type": "string",
-      "enum": "LAYOUT_PRESETS.keys",
+      "title": "RTE Search Link"
     },
-    "default": [
-      {
-        "depth": 1,
-        "layout": "default"
-      }
-    ]
+#    "default": {
+#      "rte_link": "http:kod"
+#    }
   }
 }
