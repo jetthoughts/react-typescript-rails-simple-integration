@@ -47,8 +47,8 @@ export default class InputCardDeck extends Component {
           "ui:widget": (props) => {
             return (
               <AceEditor
-                height="200px"
-                width="820px"
+                height="20%"
+                width="100%"
                 mode="yaml"
                 theme="textmate"
                 value={props.value}
@@ -68,8 +68,8 @@ export default class InputCardDeck extends Component {
           "ui:widget": (props) => {
             return (
               <AceEditor
-                height="200px"
-                width="820px"
+                height= "20%"
+                width= "100%"
                 mode="yaml"
                 theme="xcode"
                 name="UNIQUE_ID_OF_DIV"
@@ -111,7 +111,7 @@ export default class InputCardDeck extends Component {
   getScriptById(scriptId) {
     this.AppService.findScriptById(scriptId).then((script) => {
       console.log("Fetched Script: ", script)
-      const example = script.examples[1] || {}
+      const example = script.examples[0] || {}
       this.setState({
         loadFormData: example
       })

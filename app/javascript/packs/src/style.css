@@ -26,6 +26,10 @@
     font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
     white-space: pre;
     color: white;
+    width: 100%;
+    height: 60vh;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .dropdown-item {
@@ -131,5 +135,10 @@ body, html {
 }
 
 .content {
+    width: 100%;
+}
+
+.AceEditor {
+    height: 20vh;
     width: 100%;
 }

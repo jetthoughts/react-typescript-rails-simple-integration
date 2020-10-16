@@ -57,7 +57,7 @@ export default class OutputCardItem extends Component {
                     {/*<Input componentClass="textarea" rows={300} style={{ height:'auto', width: 900, resize: 'auto' }} value={textToCopy} onChange={this.handleInputChange}*/}
                     {/*/>*/}
                     <div className="form-group">
-                        <textarea rows={31} cols={99} className="codeWhite" value={textToCopy} onChange={this.handleInputChange} />
+                        <textarea className="codeWhite" value={textToCopy} onChange={this.handleInputChange} />
                     </div>
                 </div>
             </div>
