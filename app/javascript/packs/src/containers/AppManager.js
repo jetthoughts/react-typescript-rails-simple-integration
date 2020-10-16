@@ -19,21 +19,25 @@ const AppManager = () => {
   return (
     <Router>
       <div className="container-fluid">
-        <h1 className="code"> Quick Scripts</h1>
-        {/*<DarkModeToggle/>*/}
-        <DarkTheme light={lightTheme} dark={darkTheme} />
+        {/*<div className="">*/}
+        {/*  <span className="float-left"><h1 className="code"> Quick Scripts</h1></span>*/}
+        {/*  <span className="float-right"><DarkTheme light={lightTheme} dark={darkTheme}/></span>*/}
+        {/*  /!*<DarkModeToggle/>*!/*/}
+        {/*</div>*/}
         <br/>
-        <div className="sidenav">
-          <SideNavPane />
-          {/*<Route path="/"*/}
-          {/*       component={SideNavPane}>*/}
-          {/*</Route>*/}
-        </div>
-        <div className="content">
-          {/*<InputCardDeck/>*/}
-          <Route path="/script/:scriptId"
-                 component={InputCardDeck}>
-          </Route>
+        <div>
+          <div className="sidenav">
+            <SideNavPane/>
+            {/*<Route path="/"*/}
+            {/*       component={SideNavPane}>*/}
+            {/*</Route>*/}
+          </div>
+          <div className="content">
+            {/*<InputCardDeck/>*/}
+            <Route path="/script/:scriptId"
+                   component={InputCardDeck}>
+            </Route>
+          </div>
         </div>
       </div>
     </Router>
@@ -45,7 +49,7 @@ const AppManager1 = () => {
     <div>
       <div className="container-fluid">
         <h1 className="code">Quick Scripts</h1>
-        <DarkTheme light={lightTheme} dark={darkTheme} />
+        <DarkTheme light={lightTheme} dark={darkTheme}/>
         <br/>
         <SideNavPane/>
         {/*<InputCardDeck/>*/}

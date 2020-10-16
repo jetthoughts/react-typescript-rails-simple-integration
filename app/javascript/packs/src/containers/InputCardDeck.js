@@ -46,43 +46,14 @@ export default class InputCardDeck extends Component {
         templates: {
           "ui:widget": (props) => {
             return (
-              <AceEditor
-                height="20%"
-                width="100%"
-                mode="yaml"
-                theme="textmate"
-                value={props.value}
-                editorProps={{$blockScrolling: true}}
-                setOptions={{
-                  enableBasicAutocompletion: true,
-                  enableLiveAutocompletion: true,
-                  enableSnippets: true
-                }}
-                required={props.required}
-                onChange={(value) => props.onChange(value)}
-              />
+              this.ace_module("200px")(props)
             );
           }
         },
         sections: {
           "ui:widget": (props) => {
             return (
-              <AceEditor
-                height= "20%"
-                width= "100%"
-                mode="yaml"
-                theme="xcode"
-                name="UNIQUE_ID_OF_DIV"
-                value={props.value}
-                editorProps={{$blockScrolling: true}}
-                setOptions={{
-                  enableBasicAutocompletion: true,
-                  enableLiveAutocompletion: true,
-                  enableSnippets: true
-                }}
-                required={props.required}
-                onChange={(value) => props.onChange(value)}
-              />
+              this.ace_module("200px")(props)
             );
           }
         }
@@ -92,6 +63,34 @@ export default class InputCardDeck extends Component {
     this.updateData = this.updateData.bind(this)
     this.resetInput = this.resetInput.bind(this)
     this.loadInput = this.loadInput.bind(this)
+  }
+
+  ace_module(height) {
+    return (props) => {
+      return (<pre className="ace-holder">
+                <AceEditor
+                  height={height}
+                  // width="820px"
+
+                  // height={"inherit"}
+                  width={"inherit"}
+
+                  mode="yaml"
+                  theme="xcode"
+                  name="UNIQUE_ID_OF_DIV"
+                  value={props.value}
+                  editorProps={{$blockScrolling: true}}
+                  setOptions={{
+                    enableBasicAutocompletion: true,
+                    enableLiveAutocompletion: true,
+                    enableSnippets: true,
+                    autoScrollEditorIntoView: true,
+                  }}
+                  required={props.required}
+                  onChange={(value) => props.onChange(value)}
+                />
+              </pre>)
+    }
   }
 
   componentDidMount() {
@@ -122,7 +121,7 @@ export default class InputCardDeck extends Component {
       }
       this.setState({script: scriptMod})
     })
-    console.log("input Form Data: ",this.state.formData)
+    console.log("input Form Data: ", this.state.formData)
   }
 
   sendInput(key) {
@@ -161,8 +160,7 @@ export default class InputCardDeck extends Component {
       <div className="card">
         <div className="card-title">
                         <span className="float-left">
-                            <Button variant="contained" color="primary"
-                                    startIcon={<SaveAlt/>}>Save</Button> &nbsp;
+                          <Button variant="contained" color="primary" startIcon={<SaveAlt/>}>Save</Button>&nbsp;
                           <Button variant="contained" color="default" startIcon={<Publish/>}>Load</Button>&nbsp;
                           <Button variant="contained" color="primary" startIcon={<FileCopy/>}>Paste</Button>&nbsp;
                         </span>

@@ -103,18 +103,21 @@ module Scripts
       # result="https://owlery-eu-prod.corp.amazon.com/preview/ScheduledDeliveryReminder-Email/A1PA6795UKMFR9?renderParamsJson=..."
       "#{owlery_preview_link}?renderParamsJson=#{json_str}"
     end
+
+    BadRegexMatchError = Class.new(RegexpError)
+
+    def match_or_throw(match_type, str, regex, match_number)
+      mtch = str.match(regex)
+      raise RegexpError, "NoMatchs for: `#{match_type}` Regex: #{regex.inspect} in `#{str}`" if mtch.nil? || (mtch.size <= match_number)
+
+      mtch[match_number]
+    end
   end
 
-  BadRegexMatchError = Class.new(RegexpError)
-  def match_or_throw(match_type, str, regex, match_number)
-    mtch = str.match(regex)
-    raise RegexpError, "NoMatchs for: `#{match_type}` Regex: #{regex.inspect} in `#{str}`" if mtch.nil? || (mtch.size <= match_number)
-
-    mtch[match_number]
-  end
 
   class RteToOpScript < IScript
     include RteToOp
+
     def initialize
       ap "init RteToOpScript"
       @this_dir = File.dirname(__FILE__)

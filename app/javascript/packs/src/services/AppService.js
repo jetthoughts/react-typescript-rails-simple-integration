@@ -51,8 +51,8 @@ class AppService {
         input_params: JSON.stringify(formData)
       }
     })
-    console.log("body")
-    console.log(body)
+    // console.log("body")
+    // console.log(body)
     return fetch(SCRIPT_API_URL + '/api/v1/' + scriptId + '.json', {
       body: body,
       headers: {
@@ -65,7 +65,7 @@ class AppService {
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       credentials: 'same-origin', // include, *same-origin, omit
     }).then(function (response) {
-      console.log("App service server response: ", response)
+      console.log("App service response: ", response)
       return response.json();
     })
   }

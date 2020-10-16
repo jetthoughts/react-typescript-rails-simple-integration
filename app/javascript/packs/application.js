@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppManager from "./src/containers/AppManager";
+// import {App} from "../src/App";
+// import {App} from "./src/App";
 
 export function mount(Component, mountNodeId) {
   document.addEventListener('DOMContentLoaded', () => {
@@ -13,3 +14,5 @@ export function mount(Component, mountNodeId) {
     ReactDOM.render(<Component {...props} />, mountNode);
   })
 }
+
+// mount(App, 'app');
