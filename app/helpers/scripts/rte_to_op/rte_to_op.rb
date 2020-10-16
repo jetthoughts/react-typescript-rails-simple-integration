@@ -78,8 +78,8 @@ module Scripts
     def run_script(input_params)
       @res = ""
       rte_link = input_params['rte_link']
-      # @res = make_output rte_link
-      @res = rte_link
+      @res = make_output rte_link
+      # @res = rte_link
       @res
     end
 

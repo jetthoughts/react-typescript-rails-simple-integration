@@ -32,7 +32,7 @@
   <!--  </select>-->
 
   <div class="form-group">
-    <label for="lay">LAYOUT2 (graph columns)</label>
+    <label for="lay">LAYOUT (graph columns)</label>
     <%#= select_tag 'lay', options_for_select(@options.map { |preset, array| [array, preset] }), {name: "layout", class: 'form-control', multiple: true} %>
     <%= select_tag 'lay', options_for_select(@options.map { |preset, array| [array, preset] }), {name: "layout", class: 'form-control', size: @options.size} %>
   </div>

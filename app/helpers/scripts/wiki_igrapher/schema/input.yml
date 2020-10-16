@@ -20,7 +20,7 @@
     },
     "layout": {
       "type": "string",
-      "enum": "LAYOUT_PRESETS.keys",
+      "enum": "LAYOUT_PRESETS.keys", # todo: erb template bind
     },
     "default": [
       {
