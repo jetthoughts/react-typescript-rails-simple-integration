@@ -1,8 +1,5 @@
 import React, {Component} from 'react'
 import Form from "@rjsf/core";
-import AceEditor from "react-ace";
-import "ace-builds/src-noconflict/mode-json";
-import "ace-builds/src-noconflict/theme-github";
 import AppService from "../services/AppService";
 
 export default class SchemaToForm extends Component {

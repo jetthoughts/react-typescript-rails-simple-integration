@@ -20,11 +20,15 @@ export default class OutputCardItem extends Component {
 
     componentWillReceiveProps(nextProps){
         if (nextProps.content.output !== this.props.content.output) {
-            this.setState({ textToCopy: nextProps.content.output })
+            this.setState({
+                textToCopy: nextProps.content.output,
+                btnText: "Copy to Clipboard"})
+
         }
     }
 
     handleInputChange(e) {
+        console.log("OUPUT CHANGE TRIGGER")
         this.setState({
             textToCopy: e.target.value,
             btnText: "Copy to Clipboard"
@@ -53,7 +57,7 @@ export default class OutputCardItem extends Component {
                     {/*<Input componentClass="textarea" rows={300} style={{ height:'auto', width: 900, resize: 'auto' }} value={textToCopy} onChange={this.handleInputChange}*/}
                     {/*/>*/}
                     <div className="form-group">
-                        <textarea rows={31} cols={99} className="codeWhite" value={textToCopy} onChange={this.handleInputChange} readOnly/>
+                        <textarea rows={31} cols={99} className="codeWhite" value={textToCopy} onChange={this.handleInputChange} />
                     </div>
                 </div>
             </div>

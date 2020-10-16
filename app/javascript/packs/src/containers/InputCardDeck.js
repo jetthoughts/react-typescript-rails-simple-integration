@@ -6,6 +6,9 @@ import Button from "@material-ui/core/Button";
 import {Autorenew, Backspace, FileCopy, PlayArrow, Publish, SaveAlt} from "@material-ui/icons";
 import green from "@material-ui/core/colors/green";
 import AceEditor from "react-ace";
+import "ace-builds/src-noconflict/mode-yaml";
+import "ace-builds/src-noconflict/theme-textmate";
+import "ace-builds/src-noconflict/theme-xcode";
 
 export default class InputCardDeck extends Component {
   constructor(props) {
@@ -23,7 +26,13 @@ export default class InputCardDeck extends Component {
       },
       formData: {},
       key: Date.now(),
-      loadFormData: {},
+      loadFormData: {
+        // sections: 'Load Sections',
+        // layout: 'Load Layout',
+        // templates:'Load templates',
+        // depth: '2',
+      },
+
       testSchema: {
         title: "Form Gen",
         type: "object",
@@ -38,8 +47,31 @@ export default class InputCardDeck extends Component {
           "ui:widget": (props) => {
             return (
               <AceEditor
-                mode="json"
-                theme="github"
+                height="200px"
+                width="820px"
+                mode="yaml"
+                theme="textmate"
+                value={props.value}
+                editorProps={{$blockScrolling: true}}
+                setOptions={{
+                  enableBasicAutocompletion: true,
+                  enableLiveAutocompletion: true,
+                  enableSnippets: true
+                }}
+                required={props.required}
+                onChange={(value) => props.onChange(value)}
+              />
+            );
+          }
+        },
+        sections: {
+          "ui:widget": (props) => {
+            return (
+              <AceEditor
+                height="200px"
+                width="820px"
+                mode="yaml"
+                theme="xcode"
                 name="UNIQUE_ID_OF_DIV"
                 value={props.value}
                 editorProps={{$blockScrolling: true}}
@@ -90,6 +122,7 @@ export default class InputCardDeck extends Component {
       }
       this.setState({script: scriptMod})
     })
+    console.log("input Form Data: ",this.state.formData)
   }
 
   sendInput(key) {
@@ -111,14 +144,15 @@ export default class InputCardDeck extends Component {
   }
 
   loadInput() {
-    console.log("load click", this.state)
     this.setState({
       formData: this.state.loadFormData,
       key: Date.now()
     })
+    console.log("load click", this.state.loadFormData)
   }
 
   updateData = (target, value) => {
+    console.log("Update data: ", target, ":", value)
     this.setState({[target]: value});
   };
 
@@ -128,9 +162,9 @@ export default class InputCardDeck extends Component {
         <div className="card-title">
                         <span className="float-left">
                             <Button variant="contained" color="primary"
-                                    startIcon={<SaveAlt/>}>Save Input</Button> &nbsp;
-                          <Button variant="contained" color="default" startIcon={<Publish/>}>Load Input</Button>&nbsp;
-                          <Button variant="contained" color="primary" startIcon={<FileCopy/>}>Paste Input</Button>&nbsp;
+                                    startIcon={<SaveAlt/>}>Save</Button> &nbsp;
+                          <Button variant="contained" color="default" startIcon={<Publish/>}>Load</Button>&nbsp;
+                          <Button variant="contained" color="primary" startIcon={<FileCopy/>}>Paste</Button>&nbsp;
                         </span>
           <span className="float-right">
                             <Button onClick={this.resetInput}
