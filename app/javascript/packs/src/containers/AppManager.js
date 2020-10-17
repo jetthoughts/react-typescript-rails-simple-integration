@@ -27,10 +27,10 @@ const AppManager = () => {
         <br/>
         <div>
           <div className="sidenav">
-            <SideNavPane/>
-            {/*<Route path="/"*/}
-            {/*       component={SideNavPane}>*/}
-            {/*</Route>*/}
+            {/*<SideNavPane/>*/}
+            <Route path="/"
+                   component={SideNavPane}>
+            </Route>
           </div>
           <div className="content">
             {/*<InputCardDeck/>*/}

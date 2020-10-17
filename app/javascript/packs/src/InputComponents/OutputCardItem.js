@@ -10,37 +10,52 @@ export default class OutputCardItem extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      textToCopy: this.props.content.output,
-      btnText: "Copy to Clipboard"
-    };
+    // this.state = {
+    //   outputTextToCopy: this.props.content.output,
+    //   errorText: undefined,
+    //   btnText: "Copy to Clipboard",
+    // };
+    this.state = OutputCardItem.handleNewProps(props)
+
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleCopy = this.handleCopy.bind(this);
+    // this.handleNewProps = this.handleNewProps.bind(this);
+    // const newState = OutputCardItem.handleNewProps(props)
 
     this.editor = this.ace_module(props)
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.content.output !== this.props.content.output) {
-      this.setState({
-        textToCopy: nextProps.content.output,
+    const newState = OutputCardItem.handleNewProps(nextProps)
+    if (newState && this.state && (nextProps.content.output !== this.state.outputTextToCopy)) {
+      this.setState(newState)
+    }
+  }
+
+  static handleNewProps(nextProps) {
+    // if (nextProps.content.output !== this.props.content.output) { // bug?.. shouldn't we look at state?
+    // if (this.state && (nextProps.content.output !== this.state.outputTextToCopy)) {
+      const outputText = nextProps.content.output || ""
+      const errorText = nextProps.content.error
+      return ({
+        errorText: errorText,
+        outputTextToCopy: outputText,
         btnText: "Copy to Clipboard"
       })
-
-    }
+    // }
   }
 
   handleInputChange(e) {
     console.log("OUPUT CHANGE TRIGGER")
     this.setState({
-      textToCopy: e.target.value,
+      outputTextToCopy: e.target.value,
       btnText: "Copy to Clipboard"
     });
   }
 
   handleCopy() {
-    copy(this.state.textToCopy);
-    this.setState({btnText: "Copied!"});
+    copy(this.state.outputTextToCopy);
+    this.setState({btnText: "Copied!"}); // todo: return back to default text with few secs delay
   }
 
   ace_module(props) {
@@ -64,15 +79,22 @@ export default class OutputCardItem extends Component {
                     enableSnippets: true,
                     autoScrollEditorIntoView: true,
                   }}
-                  required={props.required}
-                  onChange={(value) => props.onChange(value)}
+                  // required={props.required}
+                  // onChange={(value) => props.onChange(value)}
+                  onChange={this.handleInputChange}
                 />
               </pre>)
     }
   }
 
   render() {
-    const {textToCopy, btnText} = this.state;
+    const {outputTextToCopy, btnText, errorText} = this.state;
+    const errorAlert = !!errorText ?
+      <div className="alert alert-danger" role="alert">
+        {errorText}
+      </div>
+    : '';
+    // console.log(`${outputTextToCopy} : ${errorText}`)
     return (
       <div className="card">
         <div className="card-title">
@@ -86,12 +108,12 @@ export default class OutputCardItem extends Component {
         </div>
         <hr className="solid"/>
         <div className="card-body">
-          {/*<Input componentClass="textarea" rows={300} style={{ height:'auto', width: 900, resize: 'auto' }} value={textToCopy} onChange={this.handleInputChange}*/}
+          {/*<Input componentClass="textarea" rows={300} style={{ height:'auto', width: 900, resize: 'auto' }} value={outputTextToCopy} onChange={this.handleInputChange}*/}
           {/*/>*/}
           <div className="form-group">
-            {/*<textarea rows={31} cols={99} className="codeWhite" value={textToCopy} onChange={this.handleInputChange} />*/}
+            {/*<textarea rows={31} cols={99} className="codeWhite" value={outputTextToCopy} onChange={this.handleInputChange} />*/}
 
-            {/*<span className="codeWhite" value={textToCopy} onChange={this.handleInputChange} /><p>{textToCopy}</p>*/}
+            {/*<span className="codeWhite" value={outputTextToCopy} onChange={this.handleInputChange} /><p>{outputTextToCopy}</p>*/}
 
             {/*<pre className="ace-holder">*/}
             {/*  <AceEditor*/}
@@ -107,7 +129,7 @@ export default class OutputCardItem extends Component {
             {/*    mode="yaml"*/}
             {/*    theme="xcode"*/}
             {/*    name="UNIQUE_ID_OF_DIV"*/}
-            {/*    value={textToCopy}*/}
+            {/*    value={outputTextToCopy}*/}
             {/*    editorProps={{$blockScrolling: true}}*/}
             {/*    setOptions={{*/}
             {/*      enableBasicAutocompletion: true,*/}
@@ -119,7 +141,8 @@ export default class OutputCardItem extends Component {
             {/*    onChange={this.handleInputChange}*/}
             {/*  />*/}
             {/*</pre>*/}
-            {this.editor("900px", textToCopy)}
+            {errorAlert}
+            {this.editor("900px", outputTextToCopy)}
           </div>
         </div>
       </div>

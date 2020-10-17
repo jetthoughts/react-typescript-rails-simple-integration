@@ -176,7 +176,7 @@ module Scripts
     def run_script(input_params)
       @wiki = []
       sections = input_params[SECTIONS]
-      template = optional_handle(input_params[TEMPLATES])
+      templates = optional_handle(input_params[TEMPLATES])
       depth = input_params[DEPTH].to_i
       @layout = input_params[LAYOUT] # todo: non stateful?
 
@@ -189,7 +189,7 @@ module Scripts
       make_comment pretty_yml(input_params.to_yaml), 'input_params'
       # make_comment input_params, 'input_params'
       # @wiki << spacer(3)
-      make_wiki YAML.load(sections), depth, (template ? YAML.load(template) : nil)
+      make_wiki YAML.load(sections), depth, (templates ? YAML.load(templates) : nil)
       @wiki.join HTML_BREAK
     end
 

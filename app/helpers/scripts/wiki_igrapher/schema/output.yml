@@ -20,6 +20,9 @@
     "image": {
       "type": "string"
     },
+    "file": {
+      "type": "string"
+    },
     "iframe": {
       "type": "string"
     },

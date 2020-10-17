@@ -6,7 +6,7 @@ class ScriptController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html { render 'script/index'}
+      format.html { render 'script/index' }
       format.json { render json: {scripts: SCRIPTS_MAP.keys}.to_json }
     end
   end
@@ -33,17 +33,27 @@ class ScriptController < ApplicationController
     request_input = request_params
     ap request_input
 
-    script = find_script(request_input['script'])
-    params = JSON.parse(request_input['input_params']) #todo: unsafe? errors?
-
     output = {}
     output['input'] = request_input
-    output['output'] = script.run_script(params) #todo: print errors?
+    process_handler(request_input, output)
 
     ap "output_fetch: #{output}"
 
     respond_to do |format|
       format.json { render json: output.to_json }
+    end
+  end
+
+  protected
+  def process_handler(request_input, output)
+    begin
+      script = find_script(request_input['script'])
+      params = JSON.parse(request_input['input_params']) #todo: unsafe? errors?
+      output['output'] = script.run_script(params) #todo: print errors?
+    rescue StandardError => e
+      output['error'] = e
+        # rescue Exception => e
+        #   raise e
     end
   end
 
