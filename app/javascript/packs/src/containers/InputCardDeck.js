@@ -121,7 +121,7 @@ export default class InputCardDeck extends Component {
       }
       this.setState({script: scriptMod})
     })
-    console.log("input Form Data: ", this.state.formData)
+    // console.log("input Form Data: ", this.state.formData)
   }
 
   sendInput(key) {
@@ -129,13 +129,13 @@ export default class InputCardDeck extends Component {
     console.log("Sent to server: ", this.state.formData)
     this.AppService.sendInput(key, this.state.formData)
       .then(output => {
-        console.log("OUTPUT : ", output)
+        // console.log("OUTPUT : ", output)
         this.setState({scriptOutput: output})
       })
   }
 
   resetInput() {
-    console.log("cancel click", this.state)
+    // console.log("cancel click", this.state)
     this.setState({
       formData: {},
       key: Date.now()
@@ -159,21 +159,19 @@ export default class InputCardDeck extends Component {
     return (
       <div className="card">
         <div className="card-title">
-                        <span className="float-left">
-                          <Button variant="contained" color="primary" startIcon={<SaveAlt/>}>Save</Button>&nbsp;
-                          <Button variant="contained" color="default" startIcon={<Publish/>}>Load</Button>&nbsp;
-                          <Button variant="contained" color="primary" startIcon={<FileCopy/>}>Paste</Button>&nbsp;
-                        </span>
+          <span className="float-left">
+            <Button variant="contained" color="primary" startIcon={<SaveAlt/>}>Save</Button>&nbsp;
+            <Button variant="contained" color="default" startIcon={<Publish/>}>Load</Button>&nbsp;
+            <Button variant="contained" color="primary" startIcon={<FileCopy/>}>Paste</Button>&nbsp;
+          </span>
           <span className="float-right">
-                            <Button onClick={this.resetInput}
-                                    variant="contained"
-                                    color="secondary"
-                                    startIcon={<Backspace/>}>Clear</Button>&nbsp;
+            <Button onClick={this.resetInput} variant="contained" color="secondary"
+                    startIcon={<Backspace/>}>Clear</Button>&nbsp;
             <Button onClick={this.loadInput} variant="contained" color="primary"
                     startIcon={<Autorenew/>}>Load Examples</Button>&nbsp;
             <Button onClick={() => this.sendInput(this.state.script.id)} variant="contained"
                     startIcon={<PlayArrow style={{color: green[500]}}/>}>Process</Button>&nbsp;
-                  </span>
+          </span>
         </div>
 
         <hr className="solid"/>

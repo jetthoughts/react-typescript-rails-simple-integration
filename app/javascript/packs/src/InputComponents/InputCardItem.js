@@ -4,32 +4,31 @@ import {Autorenew, Backspace, FileCopy, PlayArrow, Publish, SaveAlt} from "@mate
 import green from "@material-ui/core/colors/green";
 
 export default class InputCardItem extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return (
-            <div className="card">
-                <div className="card-title">
-                    <span className="float-left">
-                        <Button variant="contained" color="primary" startIcon={<SaveAlt/>}>Save</Button> &nbsp;
-                        <Button variant="contained" color="default" startIcon={<Publish/>}>Load</Button>&nbsp;
-                        <Button variant="contained" color="primary" startIcon={<FileCopy/>}>Paste</Button>&nbsp;
-                    </span>
-                    <span className="float-right">
-                        <Button variant="contained"
-                                color="secondary"
-                                startIcon={<Backspace/>}>Clear</Button>&nbsp;
-                        <Button variant="contained" color="primary" startIcon={<Autorenew/>}>Load Examples</Button>&nbsp;
-                        <Button variant="contained" startIcon={<PlayArrow style={{ color: green[500] }}/>}>Process</Button>&nbsp;
-                    </span>
-                </div>
-                <hr className="solid"/>
-                <div className="card-body">
-                    {this.props.contentForm}
-                </div>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="card">
+        <div className="card-title">
+          <span className="float-left">
+            <Button variant="contained" color="primary" startIcon={<SaveAlt/>}>Save</Button> &nbsp;
+            <Button variant="contained" color="default" startIcon={<Publish/>}>Load</Button>&nbsp;
+            <Button variant="contained" color="primary" startIcon={<FileCopy/>}>Paste</Button>&nbsp;
+          </span>
+          <span className="float-right">
+            <Button variant="contained" color="secondary" startIcon={<Backspace/>}>Clear</Button>&nbsp;
+            <Button variant="contained" color="primary" startIcon={<Autorenew/>}>Load Examples</Button>&nbsp;
+            {/*todo: dropdown*/}
+            <Button variant="contained" startIcon={<PlayArrow style={{color: green[500]}}/>}>Process</Button>&nbsp;
+          </span>
+        </div>
+        <hr className="solid"/>
+        <div className="card-body">
+          {this.props.contentForm}
+        </div>
+      </div>
+    )
+  }
 }
