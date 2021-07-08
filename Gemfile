@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.1'
+# ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -38,9 +38,25 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# later gems
+gem 'logging'
+# https://github.com/twbs/bootstrap-rubygem
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'amazing_print'
+#https://stackoverflow.com/questions/51926146/ruby-on-rails-autoprefixer-doesn-t-support-node-v4-9-1-update-it-how-to-fix
+gem 'reline', '>= 0.1.4'
+gem 'mini_racer' #Autoprefixer doesn’t support Node v13.6.0. Update it.
+gem 'rspec-snapshot'
+gem 'require_all'
+gem 'prettier'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # https://github.com/rspec/rspec-rails
+  gem 'rspec-rails', '~> 4.0.1'
 end
 
 group :development do

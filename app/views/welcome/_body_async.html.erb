@@ -1,0 +1,102 @@
+<%= form_for :wikiForm, url: '/', html: {class: 'form-horizontal', id: 'wikiForm'} do %>
+
+  <!--  <div class="form-group">-->
+  <!--    <label for="exampleFormControlInput1">FILENAME</label>-->
+  <!--    <input type="text" class="form-control" id="exampleFormControlInput1"-->
+  <!--           placeholder="fileName.wiki" name="filename">-->
+  <!--  </div>-->
+  <div class="form-group">
+    <label for="dep">DEPTH (1,2,3...)</label>
+    <input type="text" class="form-control textinput" id="dep"
+           placeholder="1 or above" name="depth">
+  </div>
+
+  <!--    <div class="form-group">-->
+  <!--      <label for="lay">LAYOUT (graph columns)</label>-->
+  <!--      <select multiple class="form-control" id="lay" name="layout">-->
+  <!--        <option value="default" selected>['60D1D', '4D1H', '5H5m']</option>-->
+  <!--        <option value="old_default">['30D1D', '7D1H', '8H5m']</option>-->
+  <!--        <option value="long">['90D1W', '30D1D', '7D1H', '4D1H', '5H5m', '3H5m']</option>-->
+  <!--      </select>-->
+  <!--    </div>-->
+
+  <!--  An example of using options_for_select with select_tag-->
+
+  <!--  select_tag 'user_id', options_for_select(@users.collect{ |u| [u.name, u.id] })-->
+  <!--  This would generate something like:-->
+
+  <!--  <select id="user_id" name="user_id">-->
+  <!--    <option value="1">Brad</option>-->
+  <!--    <option value="2">Angie</option>-->
+  <!--    <option value="3">Jenny</option>-->
+  <!--  </select>-->
+
+  <div class="form-group">
+    <label for="lay">LAYOUT (graph columns)</label>
+    <%#= select_tag 'lay', options_for_select(@options.map { |preset, array| [array, preset] }), {name: "layout", class: 'form-control', multiple: true} %>
+    <%= select_tag 'lay', options_for_select(@options.map { |preset, array| [array, preset] }), {name: "layout", class: 'form-control', size: @options.size} %>
+  </div>
+
+  <div class="form-group">
+    <label for="temp">TEMPLATE.yml</label>
+    <textarea class="form-control textinput" id="temp"
+              placeholder="optional"
+              rows="5" name="template"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="sec">SECTIONS.yml</label>
+    <textarea class="form-control textinput" id="sec"
+              placeholder="'add graph'"
+              rows="5" name="sections" required></textarea>
+  </div>
+<%#= f.submit %>
+  <!--  <button type="submit" class="btn btn-primary my-1">Submit</button>-->
+  <button id="run" type="button" class="btn btn-primary" data-loading-text="Processing ...">Process</button>
+  <button id="load" type="button" class="btn btn-secondary" data-loading-text="Load Example">Load Example</button>
+
+<% end %>
+
+<textarea id="sec2" hidden><%= @sample['sections'] %></textarea>
+<textarea id="temp2" hidden><%= @sample['template'] %></textarea>
+
+<script>
+  sample_section = `<%#= @sample['sections'] %>`;
+  sample_template = `<%#= @sample['template'] %>`;
+  sample_depth = `<%= @sample['depth'] || 1 %>`;
+</script>
+
+<hr>
+<!--</form>-->
+<div id="wiki" class="card well">
+  <!--  <p>-->
+  <!--    <button id="tog" hidden="hidden" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">-->
+  <!--      toggle result-->
+  <!--    </button>-->
+  <!--  </p>-->
+
+  <div id="rescard" class="card collapse show" style="height: 600px;">
+    <div class="card card-body">
+      <%= render 'ace' %>
+      <%#= render 'ace1' %>
+      <%#= render 'ace2' %>
+    </div>
+    <div class="card card-body scroll" style="white-space: pre;">
+      <!--      <div id="out"></div>-->
+      <textarea class="form-control textoutput" id="out" rows="50" readonly></textarea>
+      <%#= render 'ace1' %>
+    </div>
+    <!--    <div class="card card-body">-->
+    <!--      <p id="res"></p>-->
+    <!--    </div>-->
+  </div>
+  <!--  <div class="jumbotron jumbotron-fluid">-->
+  <!--    <div class="container">-->
+  <%#= render 'ace' %>
+  <!--    </div>-->
+  <!--  </div>-->
+</div>
+
+<!--<div id="editor">function foo(items) {-->
+<!--  var x = "All this is syntax highlighted";-->
+<!--  return x;-->
+<!--  }</div>-->

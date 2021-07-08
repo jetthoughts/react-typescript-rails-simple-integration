@@ -1,0 +1,16 @@
+{
+  "title": "RTE Search to Owlery Preview",
+  "type": "object",
+  "required": [
+    "rte_link"
+  ],
+  "properties": {
+    "rte_link": {
+      "type": "string",
+      "title": "RTE Search Link"
+    },
+#    "default": {
+#      "rte_link": "http:kod"
+#    }
+  }
+}

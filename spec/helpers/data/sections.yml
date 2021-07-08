@@ -1,0 +1,11 @@
+---
+Owen: 'Eeylops:PredicateDataAggregation:OwenContext'
+ShipTrack:
+  BaseSimplifiedShipTrack: 'Eeylops:PredicateDataAggregation:SimplifiedShipTrackContextOrder'
+  Extended:
+    GMP: Eeylops:GmpEventPredicateDataAggregationAdapter:ShipTrackContext
+    ShipTrack: Eeylops:PredicateDataAggregation:ShipTrackContext
+    Unified: Eeylops:PredicateDataAggregationAdapter:ShipTrackContext
+OptIn:
+  Test: Test_ShipTrackContext.Eeylops:PredicateDataAggregation:GetLineItemsDetailsForOrderId
+  Prod: Eeylops:PredicateDataAggregation:GetLineItemsDetailsForOrderId

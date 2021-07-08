@@ -1,0 +1,82 @@
+
+
+<%#= form_for :person do |f| %>
+<!--  First name: <%#= f.text_field :first_name %><br />-->
+<!--  Last name : <%#= f.text_field :last_name %><br />-->
+<!--  Biography : <%#= f.text_area :biography %><br />-->
+<!--  Admin?    : <%#= f.check_box :admin %><br />-->
+  <%#= f.submit %>
+<%# end %>
+
+<!--https://getbootstrap.com/docs/4.5/components/forms/?#form-grid-->
+
+<!--<form method="post" action="/wiki">-->
+<!--<form class="form-horizontal" method="post" action="/wiki">-->
+<%= form_for :wikiForm, url: '/', html: {class: 'form-horizontal'} do %>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">FILENAME</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1"
+           placeholder="fileName.wiki" name="wikiinput[filename]">
+  </div>
+
+<!--  <div class="form-group">-->
+<!--    <label for="exampleFormControlSelect1">Example select</label>-->
+<!--    <select class="form-control" id="exampleFormControlSelect1">-->
+<!--      <option>1</option>-->
+<!--      <option>2</option>-->
+<!--      <option>3</option>-->
+<!--      <option>4</option>-->
+<!--      <option>5</option>-->
+<!--    </select>-->
+<!--  </div>-->
+
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">COLUMNS</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2" name="wikiinput[config]">
+      <option selected>1</option>
+      <option>2</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">TEMPLATE</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1"
+              placeholder="item 1"
+              rows="3" name="wikiinput[template]" required>123</textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea2">SECTIONS</label>
+    <textarea class="form-control" id="exampleFormControlTextarea2"
+              placeholder="'kod\nsar'"
+              rows="5" name="wikiinput[sections]"><%= @sample['sections'] %></textarea>
+  </div>
+<%#= f.submit %>
+  <button type="submit" class="btn btn-primary my-1">Submit</button>
+<!--  <button type="button" class="btn btn-primary" data-loading-text="Processing ...">Process</button>-->
+
+<% end %>
+<!--</form>-->
+
+<div id="wiki">
+  <p id="notice"><%= notice %></p>
+  <%#= render 'previews/show', prev: @preview %>
+  <%#= render 'res', prev]: @preview %>
+  <%= render 'see', result: @result %>
+</div>
+
+<!--<form class="form-inline">-->
+<!--  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Preference</label>-->
+<!--  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">-->
+<!--    <option selected>Choose...</option>-->
+<!--    <option value="1">One</option>-->
+<!--    <option value="2">Two</option>-->
+<!--    <option value="3">Three</option>-->
+<!--  </select>-->
+
+<!--  <div class="custom-control custom-checkbox my-1 mr-sm-2">-->
+<!--    <input type="checkbox" class="custom-control-input" id="customControlInline">-->
+<!--    <label class="custom-control-label" for="customControlInline">Remember my preference</label>-->
+<!--  </div>-->
+
+<!--  <button type="submit" class="btn btn-primary my-1">Submit</button>-->
+<!--</form>-->

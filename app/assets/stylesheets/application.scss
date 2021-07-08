@@ -1,0 +1,132 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+//@import "bootstrap";
+
+body {
+  //min-height: 75rem;
+  padding-top: 0.5rem;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+//main > .container {
+//  padding: 60px 15px 0;
+//}
+
+.footer {
+  background-color: #f5f5f5;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+//-----
+//ACE
+//#editor {
+//  position: relative;
+//  height: 400px;
+//  width: 400px
+//}
+
+//#editor {
+//  position: relative;
+//  height: 100%;
+//  width: 100%;
+//}
+
+//#editor {
+//  position: relative;
+//  //position: absolute;
+//  top: 0;
+//  right: 0;
+//  bottom: 0;
+//  left: 0;
+//  height: 500px;
+//  //width: 30%;
+//}
+
+#parent {
+  //width:100%;
+  height: 600px;
+  display:inline-block;
+  position:relative;
+}
+
+#editor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  //width: 100%;
+  //height: 100%;
+  //overflow: auto;
+  //resize: both;
+}
+
+.aceeditor {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  //width: 100%;
+  //height: 100%;
+  overflow: auto;
+  //resize: both;
+}
+.ace_content {
+  height: inherit;
+}
+
+.ace-holder {
+  width: 100%;
+  height: 100%;
+}
+
+.ace-editor {
+  width: 100%;
+  height: 100%;
+}
+
+textarea {
+  white-space: pre;
+  //font-size: 10px
+  //font-size: small;
+}
+
+.textinput {
+  font-size: small;
+}
+.textoutput {
+  font-size: x-small;
+}
+
+.scroll {
+  //max-height: 100px;
+  overflow-y: scroll;
+}
+

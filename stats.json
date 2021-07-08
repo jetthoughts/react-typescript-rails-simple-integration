@@ -1,0 +1,22 @@
+[34mℹ[39m [90m｢wds｣[39m: Project is running at http://localhost:3035/
+[34mℹ[39m [90m｢wds｣[39m: webpack output is served from /packs/
+[34mℹ[39m [90m｢wds｣[39m: Content not from webpack is served from /Volumes/workplace/local/repos/QuickScriptsOnRails/public/packs
+[34mℹ[39m [90m｢wds｣[39m: 404s will fallback to /index.html
+[34mℹ[39m [90m｢wdm｣[39m: Hash: c68b89e278186525c102
+Version: webpack 4.44.2
+Time: 46237ms
+Built at: 10/15/2020 9:06:21 PM
+                                          Asset      Size            Chunks                         Chunk Names
+         js/application-3036522fd018f094f739.js  19.3 MiB       application  [emitted] [immutable]  application
+     js/application-3036522fd018f094f739.js.map  12.8 MiB       application  [emitted] [dev]        application
+         js/hello_react-a113b8178a983aad8d77.js  19.3 MiB       hello_react  [emitted] [immutable]  hello_react
+     js/hello_react-a113b8178a983aad8d77.js.map  12.8 MiB       hello_react  [emitted] [dev]        hello_react
+    js/hello_typescript-cb182c2bd0515ba51418.js   389 KiB  hello_typescript  [emitted] [immutable]  hello_typescript
+js/hello_typescript-cb182c2bd0515ba51418.js.map   438 KiB  hello_typescript  [emitted] [dev]        hello_typescript
+                                  manifest.json  1.57 KiB                    [emitted]              
+   media/fonts/fontawesome-webfont-674f50d2.eot   162 KiB                    [emitted]              
+   media/fonts/fontawesome-webfont-912ec66d.svg   434 KiB                    [emitted]              
+ media/fonts/fontawesome-webfont-af7ae505.woff2  75.4 KiB                    [emitted]              
+   media/fonts/fontawesome-webfont-b06871f2.ttf   162 KiB                    [emitted]              
+  media/fonts/fontawesome-webfont-fee66e71.woff  95.7 KiB                    [emitted]              
+[34mℹ[39m [90m｢wdm｣[39m: Compiled successfully.

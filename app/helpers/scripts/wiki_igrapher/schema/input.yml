@@ -1,0 +1,32 @@
+{
+  "title": "WikiIGrapher",
+  "type": "object",
+  "required": [
+    "sections",
+    "depth",
+    "layout"
+  ],
+  "properties": {
+    "sections": {
+      "type": "string"
+    },
+    "templates": {
+      "type": "string"
+    },
+    "depth": {
+      "type": "integer",
+      "default": 1,
+      "minimum": 0
+    },
+    "layout": {
+      "type": "string",
+      "enum": "LAYOUT_PRESETS.keys", # todo: erb template bind
+    },
+    "default": [
+      {
+        "depth": 1,
+        "layout": "default"
+      }
+    ]
+  }
+}

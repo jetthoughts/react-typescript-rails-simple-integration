@@ -58,4 +58,7 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # https://stackoverflow.com/questions/18270945/rails-server-needs-restart-every-time-i-make-changes-why/18313021
+  config.serve_static_assets = false
 end

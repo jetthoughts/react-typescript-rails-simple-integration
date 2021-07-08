@@ -1,0 +1,2 @@
+class Preview < ApplicationRecord
+end

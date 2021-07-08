@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Previews</h1>
+
+<%= link_to 'New Preview', new_preview_path %>
+<br>
+
+<%#= button_to 'New Preview - no routes', new_preview_path %>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="1">id</th>
+      <th colspan="1">input</th>
+      <th colspan="1">output</th>
+      <th colspan="3">links</th>
+<!--      <th colspan="3">e</th>-->
+<!--      <th colspan="3">d</th>-->
+    </tr>
+  </thead>
+
+  <% link_proc =->(x) { x.to_s.truncate 160} %>
+  <%# link_proc =->(x) { PrettyPrint.new(x.to_s.truncate(160)).breakable("\n",20).to_s} %>
+  <%# link_proc =->(x) { PrettyPrint.new(x.to_s.truncate(160)).breakable("\n",20).to_s} %>
+
+  <tbody>
+    <% @previews.each do |preview| %>
+      <tr>
+        <td><%= label(:preview, :id, "#{preview.id}", class: "title_label") %></td>
+<!--        <td><%#= label(:preview, :input, "#{preview.str_input.to_s.truncate 160}", class: "title_label") %></td>-->
+<!--        <td><%#= label(:preview, :output, "#{preview.json_output.to_s.truncate 160}", class: "title_label") %></td>-->
+        <td><%= link_to("#{link_proc[preview.str_input.to_s]}", "#{preview.str_input}", target: "_blank", rel: "nofollow") %></td>
+        <td><%= link_to("#{link_proc[preview.json_output]}", "#{preview.json_output}", target: "_blank", rel: "nofollow") %></td>
+        <td><%= link_to 'Show', preview %></td>
+        <td><%= link_to 'Edit', edit_preview_path(preview) %></td>
+        <td><%= link_to 'Destroy', preview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

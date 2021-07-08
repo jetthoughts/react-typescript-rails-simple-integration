@@ -1,0 +1,15 @@
+<h1>Editing Preview</h1>
+
+<%= render 'form', preview: @preview %>
+
+
+<div id="res">
+  <p id="notice"><%= notice %></p>
+  <%#= render 'previews/show', prev: @preview %>
+  <%#= render 'res', prev]: @preview %>
+  <%= render 'see', prev: @preview %>
+</div>
+
+
+<%= link_to 'Show', @preview %> |
+<%= link_to 'Back', previews_path %>

@@ -1,0 +1,35 @@
+{
+  "title": "output_schema",
+  "type": "object",
+  "required": [
+    "type"
+  ],
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "file": {
+      "type": "string"
+    },
+    "iframe": {
+      "type": "string"
+    },
+    "default": [
+    {
+      "type": "code"
+    }
+    ]
+  }
+}

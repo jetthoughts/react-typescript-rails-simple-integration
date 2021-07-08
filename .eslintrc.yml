@@ -1,0 +1,44 @@
+env:
+  es6: true
+  node: true
+  jest: true
+
+# todo: figure out a good extension to import, if needed
+# https://www.npmtrends.com/eslint-config-airbnb-vs-eslint-config-google-vs-standard-vs-prettier-vs-beautify-vs-eslint-vs-tslint
+#extends:
+#  - eslint:recommended
+#  - airbnb-base
+
+globals:
+  Atomics: readonly
+  SharedArrayBuffer: readonly
+
+parser: '@typescript-eslint/parser'
+
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: module
+
+plugins:
+  - '@typescript-eslint'
+  - 'prettier'
+  - 'sort-imports-es6-autofix'
+
+rules:
+  quotes: [warn, single, {'avoidEscape': true, 'allowTemplateLiterals': true}]
+  no-underscore-dangle: off
+  max-len: [0, warn]
+  no-useless-constructor: off
+  no-empty-function: warn
+  object-curly-spacing: off
+  no-console: warn # eventually try to remove, good logging framework alternative needed!
+  prettier/prettier: warn
+  array-element-newline: [warn, consistent]
+  function-paren-newline: [off, consistent]
+  object-curly-newline: [warn, {consistent: true}]
+  prefer-const: warn
+  sort-imports-es6-autofix/sort-imports-es6: [warn, {
+    ignoreCase: false,
+    ignoreMemberSort: false,
+    memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single']
+  }]

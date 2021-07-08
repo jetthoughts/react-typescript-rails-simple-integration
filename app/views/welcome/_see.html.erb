@@ -1,0 +1,12 @@
+
+<% if @result.nil? %>
+  <h2>Nothing to see:</h2>
+<% else %>
+<h2>Output:</h2>
+<%#= render @preview %>
+<%#= label(:preview, :id, "#{@prev.id}") %>
+  <%= label(:result, :id, "Wiki:") %>
+  <%#= text_area(:preview, :id, "#{@res}") %>
+  <%= label(:result, :id, @result) %>
+  <br>
+<% end %>

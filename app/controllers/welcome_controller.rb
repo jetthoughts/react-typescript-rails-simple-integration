@@ -1,4 +1,7 @@
+require_relative 'concerns/textedit/wiki_grapher'
+
 class WelcomeController < ApplicationController
-  def index
-  end
+  include WikiGrapher
+  # def index
+  # end
 end

@@ -1,0 +1,27 @@
+# React Components
+#todo: optimize JS loads (import, test packages etc..)
+#Navbar: TBD
+
+App: # todo: decide /script or /scripts
+  CollabsableSidebar:
+    Toggle: # below link + something like this: https://polaris.a2z.com/components/awsui-side-navigation/?example=with-sections&tabId=playground
+    ScriptsSection:
+      SearchFilter: # like this https://polaris.a2z.com/examples/react/table-select-filter.html
+      Scripts: # with links
+  MainPane: # Good size adjustable bars.. even something flexible and simple like jsbin etc https://jsbin.com/?html,js,console,output
+    InputPanel:
+      Control:
+        EditInputButtons: #reactive buttons.. arrange icons better for smaller screens..
+        ProcessInputButtons: #reactive buttons..  maybe even remove text
+      Display:
+        InputSchemaForm: # no json-editor? custom styling possible?
+    OutputPanel:
+      Control:
+        TypeAdjust: # TBD
+      Display:
+        OutputSchemaSection: #TBD .. add linkification support, based on text parsing.. Prettifier
+
+# Helpers
+#util/
+#util/ace_editor.js
+#util/service_helper.js
